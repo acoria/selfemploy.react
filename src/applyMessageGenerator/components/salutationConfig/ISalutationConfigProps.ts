@@ -1,3 +1,3 @@
 import { IHaveMessageChange } from "../core/configureComponent/IHaveMessageChange";
 
-export interface ISalutationProps extends IHaveMessageChange {}
+export interface ISalutationConfigProps extends IHaveMessageChange {}
