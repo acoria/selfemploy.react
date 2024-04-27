@@ -1,13 +1,10 @@
-import { MultiSelectButton } from "../components/core/multiSelectButtons/MultiSelectButtons";
+import styles from "./ApplyMessageGeneratorComponent.module.scss";
+import { Salutation } from "./components/salutation/Salutation";
 
 export const ApplyMessageGeneratorComponent = () => {
   return (
-    <div>
-      <MultiSelectButton
-        buttonLabels={["Test1", "Test2", "Test3"]}
-        isSingleSelect
-        onClick={(index) => console.log(`index "${index}" clicked`)}
-      />
+    <div className={styles.applyMessageGeneratorComponent}>
+      <Salutation onMessageChange={(message) => console.log(message)} />
     </div>
   );
 };

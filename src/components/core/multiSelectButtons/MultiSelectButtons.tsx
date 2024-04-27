@@ -5,7 +5,7 @@ import { style } from "../../../style";
 
 export const MultiSelectButton: React.FC<IMultiSelectButtonProps> = (props) => {
   const [selectedButtonIndices, setSelectedButtonIndices] = useState<number[]>(
-    []
+    props.preselectedIndices ?? []
   );
 
   const isSelectedButton = (index: number): boolean =>
