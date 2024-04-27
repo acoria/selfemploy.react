@@ -1,5 +1,11 @@
+import { ApplyMessageGeneratorComponent } from "./applyMessageGenerator/ApplyMessageGeneratorComponent";
+
 function App() {
-  return <div>Test</div>;
+  return (
+    <div>
+      <ApplyMessageGeneratorComponent />
+    </div>
+  );
 }
 
 export default App;
