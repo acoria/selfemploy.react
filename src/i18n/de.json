@@ -2,7 +2,9 @@
     "applyMessageGenerator": {
         "applicationMediumConfigTitle": "Bewerbung über",
         "applicationOriginConfigTitle": "Herkunft (angeboten von)",
+        "configSectionTitle": "Konfiguration",
         "languageConfigTitle": "Sprache",
+        "messageSectionTitle": "Nachricht",
         "salutation": {
             "mr": "Herr",
             "ms": "Frau",
