@@ -40,8 +40,8 @@ const fillPath = (source: object, path: string) => {
  * On the other hand this means, if a text is not available in english, we cannot use it.
  */
 const createTextObject = () => {
-  const texts: (typeof translations)["de"] = fillPath(
-    translations["de"],
+  const texts: (typeof translations)["en"] = fillPath(
+    translations["en"],
     ""
   ) as any;
   return texts;
@@ -50,4 +50,4 @@ const createTextObject = () => {
 /**
  * This variable is required to access the texts
  */
-export const texts: (typeof translations)["de"] = createTextObject();
+export const texts: (typeof translations)["en"] = createTextObject();

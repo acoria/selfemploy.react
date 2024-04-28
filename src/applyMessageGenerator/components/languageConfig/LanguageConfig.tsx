@@ -7,9 +7,11 @@ import { useTranslation } from "../../../hooks/useTranslation/useTranslation";
 import { texts } from "../../../hooks/useTranslation/texts";
 
 export const LanguageConfig: React.FC<ILanguageConfigProps> = (props) => {
-  const {t} = useTranslation()
+  const { t } = useTranslation();
   return (
-    <ConfigureComponent title={t(texts.applyMessageGenerator.languageConfigTitle)}>
+    <ConfigureComponent
+      title={t(texts.applyMessageGenerator.languageConfigTitle)}
+    >
       <MultiSelectButton
         buttonLabels={[Language.DE, Language.EN]}
         isSingleSelect

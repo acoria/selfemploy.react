@@ -15,7 +15,7 @@ export const ApplyMessageGeneratorComponent = () => {
     ApplicationMedium | undefined
   >(undefined);
 
-    const {t} = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <div className={styles.applyMessageGeneratorComponent}>

@@ -20,7 +20,7 @@ import { fillPlaceholders } from "./utils/fillPlaceholders";
  *
  */
 export const useTranslation = () => {
-  const language = "de";
+  const language = "en";
 
   const getTranslations = <T extends Placeholder>(
     keys: string[],
