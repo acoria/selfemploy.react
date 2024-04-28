@@ -4,16 +4,23 @@ import { ConfigureComponent } from "../core/configureComponent/ConfigureComponen
 import { ISalutationConfigProps } from "./ISalutationConfigProps";
 import styles from "./SalutationConfig.module.scss";
 import { InputField } from "../core/inputField/InputField";
+import { useTranslation } from "../../../hooks/useTranslation/useTranslation";
+import { texts } from "../../../hooks/useTranslation/texts";
 
 export const SalutationConfig: React.FC<ISalutationConfigProps> = (props) => {
   const [lastName, setLastName] = useState<string>("");
   const [selectedGenderIndex, setSelectedGenderIndex] = useState<number>(0);
+  const { t } = useTranslation();
 
   const getText = useCallback((): string => {
     if (selectedGenderIndex === 0) {
-      return `Sehr geehrter Herr ${lastName ?? ""},`;
+      return t(texts.applyMessageGenerator.salutation.salutationMr, {
+        lastName: lastName ?? "",
+      });
     } else {
-      return `Sehr geehrte Frau ${lastName ?? ""},`;
+      return t(texts.applyMessageGenerator.salutation.salutationMs, {
+        lastName: lastName ?? "",
+      });
     }
   }, [lastName, selectedGenderIndex]);
 
@@ -22,7 +29,7 @@ export const SalutationConfig: React.FC<ISalutationConfigProps> = (props) => {
   }, [lastName, selectedGenderIndex, getText, props]);
 
   return (
-    <ConfigureComponent title="Anrede">
+    <ConfigureComponent title={t(texts.applyMessageGenerator.salutation.title)}>
       <div className={styles.salutation}>
         <MultiSelectButton
           buttonLabels={["Herr", "Frau"]}
@@ -33,7 +40,6 @@ export const SalutationConfig: React.FC<ISalutationConfigProps> = (props) => {
         <InputField
           label="Nachname"
           onChange={(lastName) => setLastName(lastName)}
-          disabled
         />
       </div>
     </ConfigureComponent>

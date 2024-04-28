@@ -3,10 +3,13 @@ import { ConfigureComponent } from "../core/configureComponent/ConfigureComponen
 import { ILanguageConfigProps } from "./ILanguageConfigProps";
 import { Language } from "./types/Language";
 import { NotImplementedError } from "../../../errors/NotImplementedError";
+import { useTranslation } from "../../../hooks/useTranslation/useTranslation";
+import { texts } from "../../../hooks/useTranslation/texts";
 
 export const LanguageConfig: React.FC<ILanguageConfigProps> = (props) => {
+  const {t} = useTranslation()
   return (
-    <ConfigureComponent title="Sprache">
+    <ConfigureComponent title={t(texts.applyMessageGenerator.languageConfigTitle)}>
       <MultiSelectButton
         buttonLabels={[Language.DE, Language.EN]}
         isSingleSelect
