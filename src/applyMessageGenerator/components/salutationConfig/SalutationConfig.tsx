@@ -33,6 +33,7 @@ export const SalutationConfig: React.FC<ISalutationConfigProps> = (props) => {
         <InputField
           label="Nachname"
           onChange={(lastName) => setLastName(lastName)}
+          disabled
         />
       </div>
     </ConfigureComponent>
