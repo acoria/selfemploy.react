@@ -3,8 +3,8 @@ import styles from "./ApplyMessageGeneratorComponent.module.scss";
 import { SalutationConfig } from "./components/salutationConfig/SalutationConfig";
 import { LanguageConfig } from "./components/languageConfig/LanguageConfig";
 import { Language } from "./components/languageConfig/types/Language";
-import { ApplicationMediumConfig } from "./components/applicationMedium/ApplicationMediumConfig";
-import { ApplicationMedium } from "./components/applicationMedium/types/ApplicationMedium";
+import { ApplicationMediumConfig } from "./components/applicationMediumConfig/ApplicationMediumConfig";
+import { ApplicationMedium } from "./components/applicationMediumConfig/types/ApplicationMedium";
 
 export const ApplyMessageGeneratorComponent = () => {
   const [salutation, setSalutation] = useState("");
