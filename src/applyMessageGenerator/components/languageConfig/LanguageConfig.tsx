@@ -1,7 +1,8 @@
 import { MultiSelectButton } from "../../../components/core/multiSelectButtons/MultiSelectButtons";
 import { ConfigureComponent } from "../core/configureComponent/ConfigureComponent";
 import { ILanguageConfigProps } from "./ILanguageConfigProps";
-import { Language } from "./Language";
+import { Language } from "./types/Language";
+import { NotImplementedError } from "../../../errors/NotImplementedError";
 
 export const LanguageConfig: React.FC<ILanguageConfigProps> = (props) => {
   return (
@@ -13,8 +14,10 @@ export const LanguageConfig: React.FC<ILanguageConfigProps> = (props) => {
         onClick={(index) => {
           if (index === 0) {
             props.onChange(Language.DE);
-          } else {
+          } else if (index === 1) {
             props.onChange(Language.EN);
+          } else {
+            throw new NotImplementedError();
           }
         }}
       />

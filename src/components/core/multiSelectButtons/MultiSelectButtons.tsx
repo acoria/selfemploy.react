@@ -14,7 +14,14 @@ export const MultiSelectButton: React.FC<IMultiSelectButtonProps> = (props) => {
 
   const onButtonClick = (index: number) => {
     if (props.isSingleSelect) {
-      setSelectedButtonIndices([index]);
+      const buttonIndex = selectedButtonIndices.findIndex(
+        (selectedButtonIndex) => selectedButtonIndex === index
+      );
+      if (buttonIndex === -1) {
+        setSelectedButtonIndices([index]);
+      } else {
+        setSelectedButtonIndices([]);
+      }
     } else {
       const buttonIndex = selectedButtonIndices.findIndex(
         (selectedButtonIndex) => selectedButtonIndex === index

@@ -18,7 +18,7 @@ export const SalutationConfig: React.FC<ISalutationConfigProps> = (props) => {
   }, [lastName, selectedGenderIndex]);
 
   useEffect(() => {
-    props.onMessageChange(getText());
+    props.onChange(getText());
   }, [lastName, selectedGenderIndex, getText, props]);
 
   return (

@@ -1,5 +1,4 @@
-import { Language } from "./Language";
+import { IHaveChange } from "../../../types/IHaveChange";
+import { Language } from "./types/Language";
 
-export interface ILanguageConfigProps {
-  onChange: (language: Language) => void;
-}
+export interface ILanguageConfigProps extends IHaveChange<Language> {}
