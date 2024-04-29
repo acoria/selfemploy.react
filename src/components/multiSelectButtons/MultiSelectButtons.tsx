@@ -1,9 +1,9 @@
-import { ReactNode, useState } from "react";
-import { IMultiSelectButtonProps } from "./IMultiSelectButtonProps";
+import { useState } from "react";
+import { style } from "../../style";
+import { IMultiSelectButtonsProps } from "./IMultiSelectButtonsProps";
 import styles from "./MultiSelectButtons.module.scss";
-import { style } from "../../../style";
 
-export const MultiSelectButton: React.FC<IMultiSelectButtonProps> = (props) => {
+export const MultiSelectButtons: React.FC<IMultiSelectButtonsProps> = (props) => {
   const [selectedButtonIndices, setSelectedButtonIndices] = useState<number[]>(
     props.preselectedIndices ?? []
   );
@@ -36,20 +36,18 @@ export const MultiSelectButton: React.FC<IMultiSelectButtonProps> = (props) => {
     props.onClick?.(index);
   };
 
-  const buildButtons = (): ReactNode => {
-    return props.buttonLabels.map((buttonLabel, index) => (
-      <div
-        key={`${buttonLabel}_${index}`}
-        className={style(
-          styles.button,
-          isSelectedButton(index) ? styles.selectedButton : ""
-        )}
-        onClick={() => onButtonClick(index)}
-      >
-        {buttonLabel}
-      </div>
-    ));
-  };
+  const buttons = props.buttonLabels.map((buttonLabel, index) => (
+    <div
+      key={`${buttonLabel}_${index}`}
+      className={style(
+        styles.button,
+        isSelectedButton(index) ? styles.selectedButton : ""
+      )}
+      onClick={() => onButtonClick(index)}
+    >
+      {buttonLabel}
+    </div>
+  ));
 
-  return <div className={styles.multiSelectButton}>{buildButtons()}</div>;
+  return <div className={styles.multiSelectButton}>{buttons}</div>;
 };

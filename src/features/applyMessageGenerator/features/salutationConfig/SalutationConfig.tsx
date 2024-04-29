@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
-import { MultiSelectButton } from "../../../components/core/multiSelectButtons/MultiSelectButtons";
-import { ConfigureComponent } from "../core/configureComponent/ConfigureComponent";
+import { MultiSelectButtons } from "../../../../components/multiSelectButtons/MultiSelectButtons";
+import { ConfigureComponent } from "../../components/configureComponent/ConfigureComponent";
 import { ISalutationConfigProps } from "./ISalutationConfigProps";
 import styles from "./SalutationConfig.module.scss";
-import { InputField } from "../core/inputField/InputField";
-import { useTranslation } from "../../../hooks/useTranslation/useTranslation";
-import { texts } from "../../../hooks/useTranslation/texts";
+import { InputField } from "../../../../components/inputField/InputField";
+import { useTranslation } from "../../../../hooks/useTranslation/useTranslation";
+import { texts } from "../../../../hooks/useTranslation/texts";
 
 export const SalutationConfig: React.FC<ISalutationConfigProps> = (props) => {
   const [lastName, setLastName] = useState<string>("");
@@ -31,7 +31,7 @@ export const SalutationConfig: React.FC<ISalutationConfigProps> = (props) => {
   return (
     <ConfigureComponent title={t(texts.applyMessageGenerator.salutation.title)}>
       <div className={styles.salutation}>
-        <MultiSelectButton
+        <MultiSelectButtons
           buttonLabels={["Herr", "Frau"]}
           isSingleSelect
           preselectedIndices={[0]}

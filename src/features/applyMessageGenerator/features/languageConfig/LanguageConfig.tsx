@@ -1,10 +1,10 @@
-import { MultiSelectButton } from "../../../components/core/multiSelectButtons/MultiSelectButtons";
-import { ConfigureComponent } from "../core/configureComponent/ConfigureComponent";
+import { MultiSelectButtons } from "../../../../components/multiSelectButtons/MultiSelectButtons";
+import { ConfigureComponent } from "../../components/configureComponent/ConfigureComponent";
 import { ILanguageConfigProps } from "./ILanguageConfigProps";
 import { Language } from "./types/Language";
-import { NotImplementedError } from "../../../errors/NotImplementedError";
-import { useTranslation } from "../../../hooks/useTranslation/useTranslation";
-import { texts } from "../../../hooks/useTranslation/texts";
+import { NotImplementedError } from "../../../../core/errors/NotImplementedError";
+import { useTranslation } from "../../../../hooks/useTranslation/useTranslation";
+import { texts } from "../../../../hooks/useTranslation/texts";
 
 export const LanguageConfig: React.FC<ILanguageConfigProps> = (props) => {
   const { t } = useTranslation();
@@ -12,7 +12,7 @@ export const LanguageConfig: React.FC<ILanguageConfigProps> = (props) => {
     <ConfigureComponent
       title={t(texts.applyMessageGenerator.languageConfigTitle)}
     >
-      <MultiSelectButton
+      <MultiSelectButtons
         buttonLabels={[Language.DE, Language.EN]}
         isSingleSelect
         preselectedIndices={[0]}

@@ -1,4 +1,4 @@
-import { ApplyMessageGeneratorComponent } from "./applyMessageGenerator/ApplyMessageGeneratorComponent";
+import { ApplyMessageGeneratorComponent } from "./features/applyMessageGenerator/ApplyMessageGeneratorComponent";
 
 function App() {
   return (

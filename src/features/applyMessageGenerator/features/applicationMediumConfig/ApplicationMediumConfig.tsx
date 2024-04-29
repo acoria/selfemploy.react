@@ -1,8 +1,8 @@
-import { MultiSelectButton } from "../../../components/core/multiSelectButtons/MultiSelectButtons";
-import { NotImplementedError } from "../../../errors/NotImplementedError";
-import { texts } from "../../../hooks/useTranslation/texts";
-import { useTranslation } from "../../../hooks/useTranslation/useTranslation";
-import { ConfigureComponent } from "../core/configureComponent/ConfigureComponent";
+import { MultiSelectButtons } from "../../../../components/multiSelectButtons/MultiSelectButtons";
+import { NotImplementedError } from "../../../../core/errors/NotImplementedError";
+import { texts } from "../../../../hooks/useTranslation/texts";
+import { useTranslation } from "../../../../hooks/useTranslation/useTranslation";
+import { ConfigureComponent } from "../../components/configureComponent/ConfigureComponent";
 import { IApplicationMediumConfigProps } from "./IApplicationMediumConfigProps";
 import { ApplicationMedium } from "./types/ApplicationMedium";
 
@@ -12,7 +12,7 @@ export const ApplicationMediumConfig: React.FC<
   const { t } = useTranslation();
   return (
     <ConfigureComponent title={t(texts.applyMessageGenerator.applicationMediumConfigTitle)}>
-      <MultiSelectButton
+      <MultiSelectButtons
         buttonLabels={[ApplicationMedium.WEBSITE, ApplicationMedium.EMAIL]}
         isSingleSelect
         onClick={(index) => {

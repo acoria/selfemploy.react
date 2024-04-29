@@ -1,7 +1,11 @@
 {
     "applyMessageGenerator": {
         "applicationMediumConfigTitle": "Bewerbung über",
-        "applicationOriginConfigTitle": "Herkunft (angeboten von)",
+        "applicationOrigin": {
+            "title": "Herkunft (angeboten von)",
+            "linkToProject": "Link zum Projekt",
+            "projectId": "Projekt ID"
+        },
         "configSectionTitle": "Konfiguration",
         "languageConfigTitle": "Sprache",
         "messageSectionTitle": "Nachricht",
