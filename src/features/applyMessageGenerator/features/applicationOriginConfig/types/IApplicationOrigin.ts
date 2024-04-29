@@ -1,6 +1,6 @@
 import { ApplicationOrigin } from "./ApplicationOrigin";
 
 export interface IApplicationOrigin {
-  applicationOrigin: ApplicationOrigin;
+  applicationOrigin?: ApplicationOrigin;
   projectInfo?: string;
 }

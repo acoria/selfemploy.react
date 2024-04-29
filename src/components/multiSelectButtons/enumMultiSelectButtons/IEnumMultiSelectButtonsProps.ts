@@ -4,7 +4,7 @@ import { IHavePreselectedIndices } from "../types/IHavePreselectedIndices";
 import { IHaveSingleSelect } from "../types/IHaveSingleSelect";
 
 export interface IEnumMultiSelectButtonsProps<T extends Enum>
-  extends IHaveChange<keyof T>,
+  extends IHaveChange<T[keyof T]>,
     IHaveSingleSelect,
     IHavePreselectedIndices {
   enumType: T;

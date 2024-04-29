@@ -7,8 +7,18 @@
             "projectId": "Projekt ID"
         },
         "configSectionTitle": "Konfiguration",
+        "farewellConfig": {
+            "title": "Verabschiedung",
+            "nameInputFieldLabel": "Dein Name"
+        },
         "languageConfigTitle": "Sprache",
-        "messageSectionTitle": "Nachricht",
+        "messageSection": {
+            "bestRegardsInformal": "Viele Grüße",
+            "bestRegardsPolite": "Mit freundlichen Grüßen",
+            "title": "Nachricht",
+            "getInContractWithoutPlatformInfo": "Gerne würde ich mich mit Ihnen über das Projekt austauschen.",
+            "getInContactWithPlatformInfo": "Gerne würde ich mich mit Ihnen über folgendes Projekt auf {{projectInfo}} austauschen:"
+        },
         "salutation": {
             "mr": "Herr",
             "ms": "Frau",

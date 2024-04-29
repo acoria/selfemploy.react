@@ -17,9 +17,10 @@ export const InputField: React.FC<IInputFieldProps> = (props) => {
         </label>
       )}
       <input
+        value={props.initialValue}
         id={props.label}
         onChange={(event) => {
-          props.onChange(event.currentTarget.value);
+          props.onChange?.(event.currentTarget.value);
         }}
         disabled={props.disabled}
       />
