@@ -7,43 +7,44 @@ import { ConfigureComponent } from "../../components/configureComponent/Configur
 import styles from "./ApplicationOriginConfig.module.scss";
 import { IApplicationOriginConfigProps } from "./IApplicationOriginConfigProps";
 import { ApplicationOrigin } from "./types/ApplicationOrigin";
+import { IApplicationOrigin } from "./types/IApplicationOrigin";
 
 export const ApplicationOriginConfig: React.FC<
   IApplicationOriginConfigProps
 > = (props) => {
   const { t } = useTranslation();
-  const [selectedApplicationOrigin, setSelectedApplicationOrigin] =
-    useState<ApplicationOrigin|undefined>(undefined);
-    // const [selectedApplication, set ]
-  const [projectInfo, setProjectInfo] = useState<string>("");
+  const [applicationOrigin, setApplicationOrigin] =
+    useState<IApplicationOrigin>({});
 
-  const isInputFieldDisabled =
-    selectedApplicationOrigin !== ApplicationOrigin.FREELANCE &&
-    selectedApplicationOrigin !== ApplicationOrigin.FREELANCERMAP;
+  const isProjectLinkFieldDisabled =
+    applicationOrigin.applicationOrigin !== ApplicationOrigin.FREELANCE &&
+    applicationOrigin.applicationOrigin !== ApplicationOrigin.FREELANCERMAP;
+
+  const isProjectIdFieldDisabled =
+    applicationOrigin.applicationOrigin !== ApplicationOrigin.FREELANCERMAP;
 
   const onApplicationOriginChange = (applicationOrigin: ApplicationOrigin) => {
-    setSelectedApplicationOrigin(applicationOrigin);
-    props.onChange({ applicationOrigin, projectInfo });
-  };
-
-  const onProjectInfoChange = (newProjectInfo: string) => {
-    setProjectInfo(newProjectInfo);
-    props.onChange({
-      applicationOrigin: selectedApplicationOrigin,
-      projectInfo: newProjectInfo,
+    setApplicationOrigin((previous) => {
+      const newApplicationOrigin = { ...previous, applicationOrigin };
+      props.onChange(newApplicationOrigin);
+      return newApplicationOrigin;
     });
   };
 
-  const getInputFieldLabel = () => {
-    switch (selectedApplicationOrigin) {
-      case ApplicationOrigin.FREELANCE:
-        return t(texts.applyMessageGenerator.applicationOrigin.linkToProject);
+  const onLinkChange = (link: string) => {
+    setApplicationOrigin((previous) => {
+      const newApplicationOrigin = { ...previous, link };
+      props.onChange(newApplicationOrigin);
+      return newApplicationOrigin;
+    });
+  };
 
-      case ApplicationOrigin.FREELANCERMAP:
-        return t(texts.applyMessageGenerator.applicationOrigin.projectId);
-      default:
-        return "";
-    }
+  const onProjectIdChange = (projectId: string) => {
+    setApplicationOrigin((previous) => {
+      const newApplicationOrigin = { ...previous, projectId };
+      props.onChange(newApplicationOrigin);
+      return newApplicationOrigin;
+    });
   };
 
   return (
@@ -56,10 +57,19 @@ export const ApplicationOriginConfig: React.FC<
           onChange={onApplicationOriginChange}
         />
         <InputField
-          label={getInputFieldLabel()}
-          onChange={onProjectInfoChange}
-          disabled={isInputFieldDisabled}
+          label={t(texts.applyMessageGenerator.applicationOrigin.linkToProject)}
+          onChange={onLinkChange}
+          disabled={isProjectLinkFieldDisabled}
+          widthInRem={40}
         />
+        {applicationOrigin.applicationOrigin ===
+          ApplicationOrigin.FREELANCERMAP && (
+          <InputField
+            label={t(texts.applyMessageGenerator.applicationOrigin.projectId)}
+            onChange={onProjectIdChange}
+            disabled={isProjectIdFieldDisabled}
+          />
+        )}
       </div>
     </ConfigureComponent>
   );

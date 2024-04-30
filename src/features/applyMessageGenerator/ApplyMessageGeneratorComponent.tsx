@@ -34,16 +34,8 @@ export const ApplyMessageGeneratorComponent = () => {
     if (applicationOrigin === undefined) return <></>;
     if (applicationOrigin.applicationOrigin === ApplicationOrigin.FREELANCE) {
       return (
-        <a href={applicationOrigin.projectInfo}>
-          {applicationOrigin.projectInfo}
-        </a>
-      );
-    } else if (
-      applicationOrigin.applicationOrigin === ApplicationOrigin.FREELANCERMAP
-    ) {
-      return (
-        <a href={applicationOrigin.projectInfo}>
-          {`Projekt ID ${applicationOrigin.projectInfo}`}
+        <a href={applicationOrigin.link}>
+          {applicationOrigin.link}
         </a>
       );
     }
@@ -110,10 +102,9 @@ export const ApplyMessageGeneratorComponent = () => {
         {applicationMedium === ApplicationMedium.EMAIL && (
           <div>{getProjectLink()}</div>
         )}
-        <p>
-          <div>{getFarewell()}</div>
-          <div>{farewell.name ?? ""}</div>
-        </p>
+        <br />
+        <div>{getFarewell()}</div>
+        <div>{farewell.name ?? ""}</div>
       </div>
     </div>
   );

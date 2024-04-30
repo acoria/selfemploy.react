@@ -17,6 +17,7 @@ export const InputField: React.FC<IInputFieldProps> = (props) => {
         </label>
       )}
       <input
+        style={{ width: `${props.widthInRem}rem` }}
         value={props.initialValue}
         id={props.label}
         onChange={(event) => {
