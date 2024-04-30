@@ -11,7 +11,7 @@ import styles from "./FarewellConfig.module.scss";
 
 export const FarewellConfig: React.FC<IFarewellConfigProps> = (props) => {
   const { t } = useTranslation();
-  const [_, setFarewell] = useState<IFarewell>(
+  const [farewell, setFarewell] = useState<IFarewell>(
     props.initialFarewell ?? { farewell: Farewell.POLITE }
   );
 
@@ -22,7 +22,7 @@ export const FarewellConfig: React.FC<IFarewellConfigProps> = (props) => {
       <div className={styles.farewellConfig}>
         <EnumMultiSelectButtons
           enumType={Farewell}
-          preselectedIndices={[0]}
+          initialValue={farewell.farewell}
           onChange={(farewell) => {
             setFarewell((previous) => {
               const newFarewell: IFarewell = {

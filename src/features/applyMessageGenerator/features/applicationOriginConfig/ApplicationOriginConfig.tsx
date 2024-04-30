@@ -16,10 +16,6 @@ export const ApplicationOriginConfig: React.FC<
   const [applicationOrigin, setApplicationOrigin] =
     useState<IApplicationOrigin>({});
 
-  const isProjectLinkFieldDisabled =
-    applicationOrigin.applicationOrigin !== ApplicationOrigin.FREELANCE &&
-    applicationOrigin.applicationOrigin !== ApplicationOrigin.FREELANCERMAP;
-
   const isProjectIdFieldDisabled =
     applicationOrigin.applicationOrigin !== ApplicationOrigin.FREELANCERMAP;
 
@@ -59,7 +55,6 @@ export const ApplicationOriginConfig: React.FC<
         <InputField
           label={t(texts.applyMessageGenerator.applicationOrigin.linkToProject)}
           onChange={onLinkChange}
-          disabled={isProjectLinkFieldDisabled}
           widthInRem={40}
         />
         {applicationOrigin.applicationOrigin ===

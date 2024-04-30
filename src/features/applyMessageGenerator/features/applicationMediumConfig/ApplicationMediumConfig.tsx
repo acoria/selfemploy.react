@@ -17,7 +17,7 @@ export const ApplicationMediumConfig: React.FC<
       <EnumMultiSelectButtons
         enumType={ApplicationMedium}
         onChange={props.onChange}
-        preselectedIndices={[0]}
+        initialValue={props.initialValue}
       />
     </ConfigureComponent>
   );

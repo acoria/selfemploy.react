@@ -16,7 +16,8 @@
             "bestRegardsInformal": "Viele Grüße",
             "bestRegardsPolite": "Mit freundlichen Grüßen",
             "title": "Nachricht",
-            "getInContractWithoutPlatformInfo": "Gerne würde ich mich mit Ihnen über das Projekt austauschen.",
+            "getInContractWithoutPlatformInfoWithoutLink": "Gerne würde ich mich mit Ihnen über das Projekt austauschen.",
+            "getInContractWithoutPlatformInfoWithLink": "Gerne würde ich mich mit Ihnen über folgendes Projekt austauschen:",
             "getInContactWithPlatformInfo": "Gerne würde ich mich mit Ihnen über folgendes Projekt auf {{projectInfo}} austauschen:"
         },
         "projectId": "Projekt ID",

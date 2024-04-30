@@ -10,14 +10,26 @@ export function EnumMultiSelectButtons<T extends Enum>(
     props.onChange(value);
   };
 
-  const { onChange, isSingleSelect, ...multiSelectProps } = props;
+  const { onChange, isSingleSelect, ...multiSelectButtonsProps } = props;
+
+  const getPreselectedIndices = (): number[] => {
+    if (props.initialValue === undefined) {
+      return [];
+    }
+    return [
+      Object.values(props.enumType).findIndex(
+        (enumValue) => enumValue === props.initialValue
+      ),
+    ];
+  };
 
   return (
     <MultiSelectButtons
       buttonLabels={Object.values(props.enumType)}
       onClick={onClick}
       isSingleSelect={isSingleSelect !== undefined ? isSingleSelect : true}
-      {...multiSelectProps}
+      preselectedIndices={getPreselectedIndices()}
+      {...multiSelectButtonsProps}
     />
   );
 }

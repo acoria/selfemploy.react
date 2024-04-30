@@ -33,7 +33,8 @@ export const ApplyMessageGeneratorComponent = () => {
   const getProjectLink = (): JSX.Element => {
     if (applicationOrigin === undefined) return <></>;
     switch (applicationOrigin.applicationOrigin) {
-      case ApplicationOrigin.FREELANCE: {
+      case ApplicationOrigin.FREELANCE:
+      case ApplicationOrigin.OTHER: {
         return <a href={applicationOrigin.link}>{applicationOrigin.link}</a>;
       }
       case ApplicationOrigin.FREELANCERMAP: {
@@ -42,9 +43,6 @@ export const ApplyMessageGeneratorComponent = () => {
             texts.applyMessageGenerator.projectId
           )} ${applicationOrigin.projectId}`}</a>
         );
-      }
-      case ApplicationOrigin.OTHER: {
-        return <></>;
       }
       default:
         throw new NotImplementedError(
@@ -59,17 +57,33 @@ export const ApplyMessageGeneratorComponent = () => {
       case ApplicationMedium.WEBSITE: {
         return t(
           texts.applyMessageGenerator.messageSection
-            .getInContractWithoutPlatformInfo
+            .getInContractWithoutPlatformInfoWithoutLink
         );
       }
       case ApplicationMedium.EMAIL: {
-        return t(
-          texts.applyMessageGenerator.messageSection
-            .getInContactWithPlatformInfo,
-          {
-            projectInfo: applicationOrigin?.applicationOrigin ?? "",
+        if(applicationOrigin === undefined)  return ""
+        switch (applicationOrigin.applicationOrigin) {
+          case ApplicationOrigin.FREELANCE:
+          case ApplicationOrigin.FREELANCERMAP: {
+            return t(
+              texts.applyMessageGenerator.messageSection
+                .getInContactWithPlatformInfo,
+              {
+                projectInfo: applicationOrigin?.applicationOrigin ?? "",
+              }
+            );
           }
-        );
+          case ApplicationOrigin.OTHER: {
+            return t(
+              texts.applyMessageGenerator.messageSection
+                .getInContractWithoutPlatformInfoWithLink
+            );
+          }
+          default:
+            throw new NotImplementedError(
+              `Application origin ${applicationOrigin.applicationOrigin} not handled.`
+            );
+        }
       }
       default:
         throw new NotImplementedError(
@@ -101,7 +115,7 @@ export const ApplyMessageGeneratorComponent = () => {
       <h3>{t(texts.applyMessageGenerator.configSectionTitle)}</h3>
       <div className={styles.configuration}>
         <SalutationConfig onChange={setSalutation} />
-        <LanguageConfig onChange={setLanguage} />
+        <LanguageConfig onChange={setLanguage} initialValue={language} />
         <ApplicationMediumConfig onChange={setApplicationMedium} />
         <ApplicationOriginConfig onChange={setApplicationOrigin} />
         <FarewellConfig initialFarewell={farewell} onChange={setFarewell} />
