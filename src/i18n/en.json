@@ -19,6 +19,7 @@
             "getInContractWithoutPlatformInfo": "Gerne würde ich mich mit Ihnen über das Projekt austauschen.",
             "getInContactWithPlatformInfo": "Gerne würde ich mich mit Ihnen über folgendes Projekt auf {{projectInfo}} austauschen:"
         },
+        "projectId": "Projekt ID",
         "salutation": {
             "mr": "Herr",
             "ms": "Frau",

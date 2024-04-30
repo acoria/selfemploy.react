@@ -3,7 +3,9 @@ import { style } from "../../style";
 import { IMultiSelectButtonsProps } from "./IMultiSelectButtonsProps";
 import styles from "./MultiSelectButtons.module.scss";
 
-export const MultiSelectButtons: React.FC<IMultiSelectButtonsProps> = (props) => {
+export const MultiSelectButtons: React.FC<IMultiSelectButtonsProps> = (
+  props
+) => {
   const [selectedButtonIndices, setSelectedButtonIndices] = useState<number[]>(
     props.preselectedIndices ?? []
   );
@@ -13,21 +15,23 @@ export const MultiSelectButtons: React.FC<IMultiSelectButtonsProps> = (props) =>
     undefined;
 
   const onButtonClick = (index: number) => {
+    const buttonIndexOfSelectedButton = selectedButtonIndices.findIndex(
+      (selectedButtonIndex) => selectedButtonIndex === index
+    );
     if (props.isSingleSelect) {
-      const buttonIndex = selectedButtonIndices.findIndex(
-        (selectedButtonIndex) => selectedButtonIndex === index
-      );
-      if (buttonIndex === -1) {
+      if (buttonIndexOfSelectedButton !== -1) {
+        return;
+      }else{
         setSelectedButtonIndices([index]);
-      } else {
-        setSelectedButtonIndices([]);
       }
+      // if (buttonIndexOfSelectedButton === -1) {
+
+      // } else {
+      //   setSelectedButtonIndices([]);
+      // }
     } else {
-      const buttonIndex = selectedButtonIndices.findIndex(
-        (selectedButtonIndex) => selectedButtonIndex === index
-      );
-      if (buttonIndex !== -1) {
-        selectedButtonIndices.splice(buttonIndex, 1);
+      if (buttonIndexOfSelectedButton !== -1) {
+        selectedButtonIndices.splice(buttonIndexOfSelectedButton, 1);
       } else {
         selectedButtonIndices.push(index);
       }

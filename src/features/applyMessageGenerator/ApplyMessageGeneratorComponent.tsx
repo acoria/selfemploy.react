@@ -32,14 +32,25 @@ export const ApplyMessageGeneratorComponent = () => {
 
   const getProjectLink = (): JSX.Element => {
     if (applicationOrigin === undefined) return <></>;
-    if (applicationOrigin.applicationOrigin === ApplicationOrigin.FREELANCE) {
-      return (
-        <a href={applicationOrigin.link}>
-          {applicationOrigin.link}
-        </a>
-      );
+    switch (applicationOrigin.applicationOrigin) {
+      case ApplicationOrigin.FREELANCE: {
+        return <a href={applicationOrigin.link}>{applicationOrigin.link}</a>;
+      }
+      case ApplicationOrigin.FREELANCERMAP: {
+        return (
+          <a href={applicationOrigin.link}>{`${t(
+            texts.applyMessageGenerator.projectId
+          )} ${applicationOrigin.projectId}`}</a>
+        );
+      }
+      case ApplicationOrigin.OTHER: {
+        return <></>;
+      }
+      default:
+        throw new NotImplementedError(
+          `Application origin ${applicationOrigin.applicationOrigin} not handled.`
+        );
     }
-    return <></>;
   };
 
   const getInContactMessage = (): string | JSX.Element => {
