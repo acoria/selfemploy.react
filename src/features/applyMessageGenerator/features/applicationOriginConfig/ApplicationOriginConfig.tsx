@@ -13,11 +13,12 @@ export const ApplicationOriginConfig: React.FC<
   IApplicationOriginConfigProps
 > = (props) => {
   const { t } = useTranslation();
-  const [applicationOrigin, setApplicationOrigin] =
-    useState<IApplicationOrigin>({});
+  const [applicationOrigin, setApplicationOrigin] = useState<
+    IApplicationOrigin | undefined
+  >(undefined);
 
   const isProjectIdFieldDisabled =
-    applicationOrigin.applicationOrigin !== ApplicationOrigin.FREELANCERMAP;
+    applicationOrigin?.applicationOrigin !== ApplicationOrigin.FREELANCERMAP;
 
   const onApplicationOriginChange = (applicationOrigin: ApplicationOrigin) => {
     setApplicationOrigin((previous) => {
@@ -52,12 +53,16 @@ export const ApplicationOriginConfig: React.FC<
           enumType={ApplicationOrigin}
           onChange={onApplicationOriginChange}
         />
-        <InputField
-          label={t(texts.applyMessageGenerator.applicationOrigin.linkToProject)}
-          onChange={onLinkChange}
-          widthInRem={40}
-        />
-        {applicationOrigin.applicationOrigin ===
+        {applicationOrigin && (
+          <InputField
+            label={t(
+              texts.applyMessageGenerator.applicationOrigin.linkToProject
+            )}
+            onChange={onLinkChange}
+            widthInRem={40}
+          />
+        )}
+        {applicationOrigin?.applicationOrigin ===
           ApplicationOrigin.FREELANCERMAP && (
           <InputField
             label={t(texts.applyMessageGenerator.applicationOrigin.projectId)}

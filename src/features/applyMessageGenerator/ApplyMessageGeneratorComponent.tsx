@@ -16,7 +16,6 @@ import { Language } from "./features/languageConfig/types/Language";
 import { SalutationConfig } from "./features/salutationConfig/SalutationConfig";
 import { applyMessageGeneratorConfig } from "./config";
 import { ApplicationTextConfig } from "./features/applicationTextConfig/ApplicationTextConfig";
-// import * as applyMessageGeneratorConfig from "./config";
 
 export const ApplyMessageGeneratorComponent = () => {
   const [salutation, setSalutation] = useState("");
@@ -43,9 +42,13 @@ export const ApplyMessageGeneratorComponent = () => {
       }
       case ApplicationOrigin.FREELANCERMAP: {
         return (
-          <a href={applicationOrigin.link}>{`${t(
-            texts.applyMessageGenerator.projectId
-          )} ${applicationOrigin.projectId}`}</a>
+          <>
+            {applicationOrigin.projectId && (
+              <a href={applicationOrigin.link}>{`${t(
+                texts.applyMessageGenerator.projectId
+              )} ${applicationOrigin.projectId}`}</a>
+            )}
+          </>
         );
       }
       default:
@@ -55,7 +58,7 @@ export const ApplyMessageGeneratorComponent = () => {
     }
   };
 
-  const getInContactMessage = (): string | JSX.Element => {
+  const getGetInContactMessage = (): string | JSX.Element => {
     if (applicationMedium === undefined) return "";
     switch (applicationMedium) {
       case ApplicationMedium.WEBSITE: {
@@ -124,7 +127,10 @@ export const ApplyMessageGeneratorComponent = () => {
           applicationTexts={applyMessageGeneratorConfig.applicationTexts}
           onChange={setApplicationText}
         />
-        <ApplicationMediumConfig onChange={setApplicationMedium} />
+        <ApplicationMediumConfig
+          initialValue={applicationMedium}
+          onChange={setApplicationMedium}
+        />
         <ApplicationOriginConfig onChange={setApplicationOrigin} />
         <FarewellConfig initialFarewell={farewell} onChange={setFarewell} />
       </div>
@@ -132,7 +138,7 @@ export const ApplyMessageGeneratorComponent = () => {
         <h3>{t(texts.applyMessageGenerator.messageSection.title)}</h3>
         <p>{salutation}</p>
         <p>{applicationText}</p>
-        <div>{getInContactMessage()}</div>
+        <div>{getGetInContactMessage()}</div>
         {applicationMedium === ApplicationMedium.EMAIL && (
           <div>{getProjectLink()}</div>
         )}

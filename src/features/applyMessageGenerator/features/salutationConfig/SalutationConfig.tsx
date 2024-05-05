@@ -41,10 +41,12 @@ export const SalutationConfig: React.FC<ISalutationConfigProps> = (props) => {
           onChange={setGender}
           initialValue={props.initialValue}
         />
-        <InputField
-          label="Nachname"
-          onChange={(lastName) => setLastName(lastName)}
-        />
+        {gender && (
+          <InputField
+            label="Nachname"
+            onChange={(lastName) => setLastName(lastName)}
+          />
+        )}
       </div>
     </ConfigureComponent>
   );

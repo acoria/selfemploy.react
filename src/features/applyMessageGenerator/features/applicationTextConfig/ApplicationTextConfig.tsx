@@ -9,12 +9,16 @@ export const ApplicationTextConfig: React.FC<IApplicationTextConfigProps> = (
   props
 ) => {
   const { t } = useTranslation();
-  const [selectedButtonIndex, setSelectedButtonIndex] = useState<number>(0);
+  const [selectedButtonIndex, setSelectedButtonIndex] = useState<
+    number | undefined
+  >(undefined);
   const buttonLabels = props.applicationTexts.map(
     (applicationText) => applicationText.type
   );
-  const getTextByIndex = (index: number): string =>
-    props.applicationTexts[index].text;
+  const getTextByIndex = (index: number | undefined): string => {
+    if (index === undefined) return "";
+    return props.applicationTexts[index].text;
+  };
 
   return (
     <ConfigureComponent
@@ -27,7 +31,6 @@ export const ApplicationTextConfig: React.FC<IApplicationTextConfigProps> = (
           setSelectedButtonIndex(index);
           props.onChange(getTextByIndex(index));
         }}
-        preselectedIndices={[0]}
       />
       <p>{getTextByIndex(selectedButtonIndex)}</p>
     </ConfigureComponent>
