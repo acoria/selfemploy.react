@@ -14,6 +14,9 @@ import { IFarewell } from "./features/farewellConfig/IFarewell";
 import { LanguageConfig } from "./features/languageConfig/LanguageConfig";
 import { Language } from "./features/languageConfig/types/Language";
 import { SalutationConfig } from "./features/salutationConfig/SalutationConfig";
+import { applyMessageGeneratorConfig } from "./config";
+import { ApplicationTextConfig } from "./features/applicationTextConfig/ApplicationTextConfig";
+// import * as applyMessageGeneratorConfig from "./config";
 
 export const ApplyMessageGeneratorComponent = () => {
   const [salutation, setSalutation] = useState("");
@@ -21,11 +24,12 @@ export const ApplyMessageGeneratorComponent = () => {
   const [applicationMedium, setApplicationMedium] = useState<ApplicationMedium>(
     ApplicationMedium.WEBSITE
   );
+  const [applicationText, setApplicationText] = useState<string>("");
   const [applicationOrigin, setApplicationOrigin] =
     useState<IApplicationOrigin>();
   const [farewell, setFarewell] = useState<IFarewell>({
     farewell: Farewell.POLITE,
-    name: "Verena Tewes",
+    name: applyMessageGeneratorConfig.myName,
   });
 
   const { t } = useTranslation();
@@ -61,7 +65,7 @@ export const ApplyMessageGeneratorComponent = () => {
         );
       }
       case ApplicationMedium.EMAIL: {
-        if(applicationOrigin === undefined)  return ""
+        if (applicationOrigin === undefined) return "";
         switch (applicationOrigin.applicationOrigin) {
           case ApplicationOrigin.FREELANCE:
           case ApplicationOrigin.FREELANCERMAP: {
@@ -116,6 +120,10 @@ export const ApplyMessageGeneratorComponent = () => {
       <div className={styles.configuration}>
         <SalutationConfig onChange={setSalutation} />
         <LanguageConfig onChange={setLanguage} initialValue={language} />
+        <ApplicationTextConfig
+          applicationTexts={applyMessageGeneratorConfig.applicationTexts}
+          onChange={setApplicationText}
+        />
         <ApplicationMediumConfig onChange={setApplicationMedium} />
         <ApplicationOriginConfig onChange={setApplicationOrigin} />
         <FarewellConfig initialFarewell={farewell} onChange={setFarewell} />
@@ -127,7 +135,9 @@ export const ApplyMessageGeneratorComponent = () => {
         {applicationMedium === ApplicationMedium.EMAIL && (
           <div>{getProjectLink()}</div>
         )}
-        <br />
+        {/* <br /> */}
+        <p>{applicationText}</p>
+        {/* <br /> */}
         <div>{getFarewell()}</div>
         <div>{farewell.name ?? ""}</div>
       </div>

@@ -6,6 +6,9 @@
             "linkToProject": "Link zum Projekt",
             "projectId": "Projekt ID"
         },
+        "applicationText": {
+            "title": "Bewerbungstext"
+        },
         "configSectionTitle": "Konfiguration",
         "farewellConfig": {
             "title": "Verabschiedung",
