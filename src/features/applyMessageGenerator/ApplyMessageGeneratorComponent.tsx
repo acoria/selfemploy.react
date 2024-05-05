@@ -131,13 +131,12 @@ export const ApplyMessageGeneratorComponent = () => {
       <div className={styles.message}>
         <h3>{t(texts.applyMessageGenerator.messageSection.title)}</h3>
         <p>{salutation}</p>
+        <p>{applicationText}</p>
         <div>{getInContactMessage()}</div>
         {applicationMedium === ApplicationMedium.EMAIL && (
           <div>{getProjectLink()}</div>
         )}
-        {/* <br /> */}
-        <p>{applicationText}</p>
-        {/* <br /> */}
+        <br />
         <div>{getFarewell()}</div>
         <div>{farewell.name ?? ""}</div>
       </div>

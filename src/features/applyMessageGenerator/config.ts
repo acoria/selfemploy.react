@@ -1,7 +1,7 @@
 import { IApplyMessageGeneratorConfig } from "./types/IApplyMessageGeneratorConfig";
 
 export const applyMessageGeneratorConfig: IApplyMessageGeneratorConfig = {
-  myName: "Peter Hoffmann",
+  myName: "Verena Tewes",
   applicationTexts: [
     {
       type: "UX",
