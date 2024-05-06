@@ -124,11 +124,17 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
   const getConditions = () => {
     return (
       <>
-        {props.applyMessage?.hourlyRate && (
+        {(props.applyMessage?.availableFrom ||
+          props.applyMessage?.hourlyRate) && (
           <div>
-            {t(texts.applyMessageGenerator.messageSection.hourlyRateInfo, {
-              hourlyRate: props.applyMessage.hourlyRate,
-            })}
+            {props.applyMessage?.availableFrom &&
+              t(texts.applyMessageGenerator.messageSection.availabilityInfo, {
+                availableFrom: props.applyMessage.availableFrom,
+              })}
+            {props.applyMessage?.hourlyRate &&
+              t(texts.applyMessageGenerator.messageSection.hourlyRateInfo, {
+                hourlyRate: props.applyMessage.hourlyRate,
+              })}
           </div>
         )}
       </>

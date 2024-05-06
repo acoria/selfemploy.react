@@ -15,6 +15,7 @@ import styles from "./MessageGeneratorConfig.module.scss";
 import { ApplicantNumber } from "../applicantNumberConfig/ApplicantNumber";
 import { ApplicantNumberConfig } from "../applicantNumberConfig/ApplicantNumberConfig";
 import { HourlyRateConfig } from "../HourlyRateConfig/HourlyRateConfig";
+import { AvailabilityConfig } from "../availabilityConfig/AvailabilityConfig";
 
 export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
   props
@@ -26,6 +27,7 @@ export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
     applicationMedium: ApplicationMedium.WEBSITE,
     applicationOrigin: undefined,
     applicationText: "",
+    availableFrom: undefined,
     hourlyRate: undefined,
     farewell: {
       farewell: Farewell.POLITE,
@@ -82,6 +84,15 @@ export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
           setApplyMessage((applyMessage) => ({
             ...applyMessage,
             applicationOrigin,
+          }))
+        }
+      />
+      <AvailabilityConfig
+        initialValue={false}
+        onChange={(availableFrom) =>
+          setApplyMessage((applyMessage) => ({
+            ...applyMessage,
+            availableFrom,
           }))
         }
       />

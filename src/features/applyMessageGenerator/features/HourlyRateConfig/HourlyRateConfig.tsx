@@ -32,7 +32,9 @@ export const HourlyRateConfig: React.FC<IHourlyRateConfigProps> = (props) => {
           initialValue={props.initialValue}
           onChange={setHourlyRateActive}
         />
-        <InputField onChange={setHourlyRate} suffixLabel="€" />
+        {hourlyRateActive && (
+          <InputField onChange={setHourlyRate} suffixLabel="€" />
+        )}
       </div>
     </ConfigureComponent>
   );

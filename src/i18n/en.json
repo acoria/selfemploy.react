@@ -14,6 +14,7 @@
         "applicationText": {
             "title": "Bewerbungstext"
         },
+        "availabilityConfigTitle": "Verfügbar ab",
         "configSectionTitle": "Konfiguration",
         "farewellConfig": {
             "title": "Verabschiedung",
@@ -22,6 +23,7 @@
         "hourlyRateConfigTitle": "Stundensatz",
         "languageConfigTitle": "Sprache",
         "messageSection": {
+            "availabilityInfo": "Ich bin ab {{availableFrom}} verfügbar. ",
             "bestRegardsInformal": "Viele Grüße",
             "bestRegardsPolite": "Mit freundlichen Grüßen",
             "buddyProfile": "Dies ist das Profil meines Kollegen: {{profileLink}}",
