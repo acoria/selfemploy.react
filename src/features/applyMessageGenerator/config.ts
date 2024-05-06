@@ -11,5 +11,9 @@ export const applyMessageGeneratorConfig: IApplyMessageGeneratorConfig = {
       type: "UX-Test",
       text: "Test text... Ich habe ihre Projektausschreibung gelesen und mich darin sofort wiedergefunden. Neben den erforderlichen Fähigkeiten als Fullstack-Developer liegen meine Kernkompetenzen in der Abstimmung mit Endanwendern, Stakeholdern und Entwicklern, sowie der eigenverantwortlichen Umsetzung der eingeholten Anforderungen.",
     },
+    {
+      type: "für zwei",
+      text: "Wir sind zwei Frontend-Entwickler, die mit Interesse ihre Ausschreibung für mehrere Entwickler zur Kenntnis genommen haben. Wir haben bereits mehrere Jahre in unterschiedlichsten Projekten miteinander gearbeitet. Neben unserer Frontend Expertise besitzen wir beide einen unterschiedlichen Fokus, zum einen im Middleware-Bereich, zum anderen im Bereich Usability.",
+    },
   ],
 };

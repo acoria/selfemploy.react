@@ -1,5 +1,6 @@
 {
     "applyMessageGenerator": {
+        "applicantNumberConfigTitle": "Anzahl Bewerber",
         "applicationMediumConfigTitle": "Bewerbung über",
         "applicationOrigin": {
             "title": "Herkunft (angeboten von)",
@@ -18,10 +19,13 @@
         "messageSection": {
             "bestRegardsInformal": "Viele Grüße",
             "bestRegardsPolite": "Mit freundlichen Grüßen",
+            "buddyProfile": "Dies ist das Profil meines Kollegen: {{profileLink}}",
+            "getInContractWithoutPlatformInfoWithoutLink": "Gerne {{wouldWho}} mit Ihnen über das Projekt austauschen.",
+            "getInContractWithoutPlatformInfoWithLink": "Gerne {{wouldWho}} mit Ihnen über folgendes Projekt austauschen:",
+            "getInContactWithPlatformInfo": "Gerne {{wouldWho}} mit Ihnen über folgendes Projekt auf {{projectInfo}} austauschen:",
             "title": "Nachricht",
-            "getInContractWithoutPlatformInfoWithoutLink": "Gerne würde ich mich mit Ihnen über das Projekt austauschen.",
-            "getInContractWithoutPlatformInfoWithLink": "Gerne würde ich mich mit Ihnen über folgendes Projekt austauschen:",
-            "getInContactWithPlatformInfo": "Gerne würde ich mich mit Ihnen über folgendes Projekt auf {{projectInfo}} austauschen:"
+            "wouldI": "würde ich mich",
+            "wouldWe": "würden wir uns"
         },
         "projectId": "Projekt ID",
         "salutation": {

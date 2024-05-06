@@ -12,6 +12,8 @@ import { Language } from "../languageConfig/types/Language";
 import { SalutationConfig } from "../salutationConfig/SalutationConfig";
 import { IMessageGeneratorConfigProps } from "./IMessageGeneratorConfigProps";
 import styles from "./MessageGeneratorConfig.module.scss";
+import { ApplicantNumber } from "../applicantNumberConfig/ApplicantNumber";
+import { ApplicantNumberConfig } from "../applicantNumberConfig/ApplicantNumberConfig";
 
 export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
   props
@@ -19,6 +21,7 @@ export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
   const [applyMessage, setApplyMessage] = useState<IApplyMessage>({
     salutation: "",
     language: Language.DE,
+    applicantNumber: ApplicantNumber.SINGLE,
     applicationMedium: ApplicationMedium.WEBSITE,
     applicationOrigin: undefined,
     applicationText: "",
@@ -44,6 +47,15 @@ export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
           setApplyMessage((applyMessage) => ({ ...applyMessage, language }))
         }
         initialValue={applyMessage.language}
+      />
+      <ApplicantNumberConfig
+        initialValue={applyMessage.applicantNumber}
+        onChange={(applicantNumber) =>
+          setApplyMessage((applyMessage) => ({
+            ...applyMessage,
+            applicantNumber,
+          }))
+        }
       />
       <ApplicationTextConfig
         applicationTexts={applyMessageGeneratorConfig.applicationTexts}

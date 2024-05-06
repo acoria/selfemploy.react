@@ -6,6 +6,8 @@ import { texts } from "../../../../hooks/useTranslation/texts";
 import { useTranslation } from "../../../../hooks/useTranslation/useTranslation";
 import { ApplicationMedium } from "../applicationMediumConfig/types/ApplicationMedium";
 import { Farewell } from "../farewellConfig/Farewell";
+import { ApplicantNumber } from "../applicantNumberConfig/ApplicantNumber";
+import { ReactNode } from "react";
 
 export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
   const { t } = useTranslation();
@@ -41,11 +43,28 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
 
   const getGetInContactMessage = (): string | JSX.Element => {
     if (props.applyMessage?.applicationMedium === undefined) return "";
+    let wouldPlaceholder;
+    switch (props.applyMessage.applicantNumber) {
+      case ApplicantNumber.SINGLE:
+        wouldPlaceholder = t(texts.applyMessageGenerator.messageSection.wouldI);
+        break;
+      case ApplicantNumber.DOUBLE:
+        wouldPlaceholder = t(
+          texts.applyMessageGenerator.messageSection.wouldWe
+        );
+        break;
+      default:
+        throw new NotImplementedError(
+          `ApplicantNumber enum value '${props.applyMessage.applicantNumber}' not handled.`
+        );
+    }
+
     switch (props.applyMessage?.applicationMedium) {
       case ApplicationMedium.WEBSITE: {
         return t(
           texts.applyMessageGenerator.messageSection
-            .getInContractWithoutPlatformInfoWithoutLink
+            .getInContractWithoutPlatformInfoWithoutLink,
+          { wouldWho: wouldPlaceholder }
         );
       }
       case ApplicationMedium.EMAIL: {
@@ -57,6 +76,7 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
               texts.applyMessageGenerator.messageSection
                 .getInContactWithPlatformInfo,
               {
+                wouldWho: wouldPlaceholder,
                 projectInfo:
                   props.applyMessage?.applicationOrigin?.applicationOrigin ??
                   "",
@@ -66,7 +86,8 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
           case ApplicationOrigin.OTHER: {
             return t(
               texts.applyMessageGenerator.messageSection
-                .getInContractWithoutPlatformInfoWithLink
+                .getInContractWithoutPlatformInfoWithLink,
+              { wouldWho: wouldPlaceholder }
             );
           }
           default:
@@ -80,6 +101,24 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
           `Case for ApplicationMedium ${props.applyMessage?.applicationMedium} not handled.`
         );
     }
+  };
+
+  const getSecondProfileLink = (): ReactNode | string => {
+    if (props.applyMessage?.applicantNumber === ApplicantNumber.DOUBLE) {
+      return (
+        <>
+          {t(texts.applyMessageGenerator.messageSection.buddyProfile, {
+            profileLink: (
+              <a href="https://www.freelancermap.de/profil/software-architekt-251647">
+                https://www.freelancermap.de/profil/software-architekt-251647
+              </a>
+            ),
+          })}
+          <br />
+        </>
+      );
+    }
+    return "";
   };
 
   const getFarewell = (): string => {
@@ -104,6 +143,7 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
     <>
       <p>{props.applyMessage?.salutation}</p>
       <p>{props.applyMessage?.applicationText}</p>
+      {getSecondProfileLink()}
       <div>{getGetInContactMessage()}</div>
       {props.applyMessage?.applicationMedium === ApplicationMedium.EMAIL && (
         <div>{getProjectLink()}</div>
