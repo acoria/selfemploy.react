@@ -11,5 +11,6 @@ export interface IApplyMessage {
   applicationMedium: ApplicationMedium;
   applicationOrigin: IApplicationOrigin | undefined;
   applicationText: string;
+  hourlyRate: string | undefined;
   farewell: IFarewell;
 }

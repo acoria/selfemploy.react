@@ -25,6 +25,17 @@ export const InputField: React.FC<IInputFieldProps> = (props) => {
         }}
         disabled={props.disabled}
       />
+      {props.suffixLabel && (
+        <label
+          className={style(
+            styles.label,
+            props.disabled ? styles.labelDisabled : ""
+          )}
+          htmlFor={props.label}
+        >
+          {props.suffixLabel}
+        </label>
+      )}
     </div>
   );
 };

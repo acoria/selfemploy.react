@@ -27,11 +27,11 @@ export const SalutationConfig: React.FC<ISalutationConfigProps> = (props) => {
         });
       }
     }
-  }, [lastName, gender, t]);
+  }, [lastName, gender]);
 
   useEffect(() => {
     props.onChange(getText());
-  }, [lastName, gender, getText, props]);
+  }, [lastName, gender, getText]);
 
   return (
     <ConfigureComponent title={t(texts.applyMessageGenerator.salutation.title)}>

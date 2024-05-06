@@ -1,4 +1,8 @@
 {
+    "general": {
+        "yes": "ja",
+        "no": "nein"
+    },
     "applyMessageGenerator": {
         "applicantNumberConfigTitle": "Anzahl Bewerber",
         "applicationMediumConfigTitle": "Bewerbung über",
@@ -15,6 +19,7 @@
             "title": "Verabschiedung",
             "nameInputFieldLabel": "Dein Name"
         },
+        "hourlyRateConfigTitle": "Stundensatz",
         "languageConfigTitle": "Sprache",
         "messageSection": {
             "bestRegardsInformal": "Viele Grüße",
@@ -23,6 +28,7 @@
             "getInContractWithoutPlatformInfoWithoutLink": "Gerne {{wouldWho}} mit Ihnen über das Projekt austauschen.",
             "getInContractWithoutPlatformInfoWithLink": "Gerne {{wouldWho}} mit Ihnen über folgendes Projekt austauschen:",
             "getInContactWithPlatformInfo": "Gerne {{wouldWho}} mit Ihnen über folgendes Projekt auf {{projectInfo}} austauschen:",
+            "hourlyRateInfo": "Mein Stundensatz beträgt {{hourlyRate}}€.",
             "title": "Nachricht",
             "wouldI": "würde ich mich",
             "wouldWe": "würden wir uns"

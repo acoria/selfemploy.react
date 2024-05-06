@@ -121,6 +121,20 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
     return "";
   };
 
+  const getConditions = () => {
+    return (
+      <>
+        {props.applyMessage?.hourlyRate && (
+          <div>
+            {t(texts.applyMessageGenerator.messageSection.hourlyRateInfo, {
+              hourlyRate: props.applyMessage.hourlyRate,
+            })}
+          </div>
+        )}
+      </>
+    );
+  };
+
   const getFarewell = (): string => {
     if (props.applyMessage?.farewell.farewell === undefined) return "";
     switch (props.applyMessage?.farewell.farewell) {
@@ -148,7 +162,9 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
       {props.applyMessage?.applicationMedium === ApplicationMedium.EMAIL && (
         <div>{getProjectLink()}</div>
       )}
+      {getConditions()}
       <br />
+
       <div>{getFarewell()}</div>
       <div>{props.applyMessage?.farewell.name ?? ""}</div>
     </>

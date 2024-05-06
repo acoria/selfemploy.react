@@ -14,6 +14,7 @@ import { IMessageGeneratorConfigProps } from "./IMessageGeneratorConfigProps";
 import styles from "./MessageGeneratorConfig.module.scss";
 import { ApplicantNumber } from "../applicantNumberConfig/ApplicantNumber";
 import { ApplicantNumberConfig } from "../applicantNumberConfig/ApplicantNumberConfig";
+import { HourlyRateConfig } from "../HourlyRateConfig/HourlyRateConfig";
 
 export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
   props
@@ -25,6 +26,7 @@ export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
     applicationMedium: ApplicationMedium.WEBSITE,
     applicationOrigin: undefined,
     applicationText: "",
+    hourlyRate: undefined,
     farewell: {
       farewell: Farewell.POLITE,
       name: applyMessageGeneratorConfig.myName,
@@ -80,6 +82,15 @@ export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
           setApplyMessage((applyMessage) => ({
             ...applyMessage,
             applicationOrigin,
+          }))
+        }
+      />
+      <HourlyRateConfig
+        initialValue={false}
+        onChange={(hourlyRate) =>
+          setApplyMessage((applyMessage) => ({
+            ...applyMessage,
+            hourlyRate,
           }))
         }
       />
