@@ -1,11 +1,7 @@
 import { ApplyMessageGeneratorComponent } from "./features/applyMessageGenerator/ApplyMessageGeneratorComponent";
 
 function App() {
-  return (
-    <div>
-      <ApplyMessageGeneratorComponent />
-    </div>
-  );
+  return <ApplyMessageGeneratorComponent />;
 }
 
 export default App;

@@ -13,7 +13,7 @@ export const ApplyMessageGeneratorComponent = () => {
     undefined
   );
   return (
-    <div className={styles.applyMessageGeneratorComponent}>
+    <>
       <div className={styles.header}>
         <Icon className={styles.icon} />
         <div className={styles.headerTitle}>
@@ -33,6 +33,6 @@ export const ApplyMessageGeneratorComponent = () => {
           <ApplyMessage applyMessage={applyMessage} />
         </div>
       </div>
-    </div>
+    </>
   );
 };
