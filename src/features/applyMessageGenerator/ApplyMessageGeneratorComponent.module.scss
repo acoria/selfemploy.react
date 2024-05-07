@@ -1,9 +1,36 @@
 @import '../../colors.scss';
 
-.applyMessageGeneratorComponent {
+.applyMessageGeneratorComponent {}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 0.5rem;
+    background-color: $primary;
+    padding: 0.5rem;
+}
+
+.headerTitle {
+    color: $white;
+    font-weight: 600;
+}
+
+.icon {
+    width: 2rem;
+    stroke: $white;
+}
+
+.content {
     padding: 1rem;
 }
 
-.message {
-    margin-top: 3rem;
+.title {
+    margin-top: 0;
+}
+
+.divider{
+    height: 0.1rem;
+    margin: 2rem 1.3rem;
+    background-color: $secondary;
 }

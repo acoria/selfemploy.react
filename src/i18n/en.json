@@ -4,10 +4,11 @@
         "no": "nein"
     },
     "applyMessageGenerator": {
+        "appTitle": "Bewerbungsschreiben-Konfigurator",
         "applicantNumberConfigTitle": "Anzahl Bewerber",
         "applicationMediumConfigTitle": "Bewerbung über",
         "applicationOrigin": {
-            "title": "Herkunft (angeboten von)",
+            "title": "Herkunft (angeboten auf)",
             "linkToProject": "Link zum Projekt",
             "projectId": "Projekt ID"
         },

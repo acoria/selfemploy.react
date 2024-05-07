@@ -1,0 +1,7 @@
+{
+  "name": "Freelancing",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

@@ -1,0 +1,8 @@
+{
+    "appId": "com.acoria.selfemploy.react",
+    "appName": "Freelancing",
+    "bundledWebRuntime": false,
+    "npmClient": "npm",
+    "webDir": "build",
+    "cordova": {}
+}

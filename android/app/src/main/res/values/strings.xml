@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Freelancing</string>
+    <string name="title_activity_main">Freelancing</string>
+    <string name="package_name">com.acoria.selfemploy.react</string>
+    <string name="custom_url_scheme">com.acoria.selfemploy.react</string>
+</resources>

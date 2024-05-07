@@ -5,6 +5,7 @@ import { useTranslation } from "../../hooks/useTranslation/useTranslation";
 import styles from "./ApplyMessageGeneratorComponent.module.scss";
 import { ApplyMessage } from "./features/applyMessage/ApplyMessage";
 import { MessageGeneratorConfig } from "./features/messageGeneratorConfig/MessageGeneratorConfig";
+import { ReactComponent as Icon } from "../../assets/icon.svg";
 
 export const ApplyMessageGeneratorComponent = () => {
   const { t } = useTranslation();
@@ -13,11 +14,24 @@ export const ApplyMessageGeneratorComponent = () => {
   );
   return (
     <div className={styles.applyMessageGeneratorComponent}>
-      <h3>{t(texts.applyMessageGenerator.configSectionTitle)}</h3>
-      <MessageGeneratorConfig onApplyMessageChange={setApplyMessage} />
-      <div className={styles.message}>
-        <h3>{t(texts.applyMessageGenerator.messageSection.title)}</h3>
-        <ApplyMessage applyMessage={applyMessage} />
+      <div className={styles.header}>
+        <Icon className={styles.icon} />
+        <div className={styles.headerTitle}>
+          {t(texts.applyMessageGenerator.appTitle)}
+        </div>
+      </div>
+      <div className={styles.content}>
+        <h3 className={styles.title}>
+          {t(texts.applyMessageGenerator.configSectionTitle)}
+        </h3>
+        <MessageGeneratorConfig onApplyMessageChange={setApplyMessage} />
+        <div className={styles.divider}></div>
+        <div>
+          <h3 className={styles.title}>
+            {t(texts.applyMessageGenerator.messageSection.title)}
+          </h3>
+          <ApplyMessage applyMessage={applyMessage} />
+        </div>
       </div>
     </div>
   );
