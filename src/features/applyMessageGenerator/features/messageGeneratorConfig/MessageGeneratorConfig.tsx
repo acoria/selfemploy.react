@@ -40,7 +40,7 @@ export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
   }, [applyMessage]);
 
   return (
-    <div className={styles.configuration}>
+    <>
       <LanguageConfig
         onChange={(language) =>
           setApplyMessage((applyMessage) => ({ ...applyMessage, language }))
@@ -111,6 +111,6 @@ export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
           setApplyMessage((applyMessage) => ({ ...applyMessage, farewell }))
         }
       />
-    </div>
+    </>
   );
 };

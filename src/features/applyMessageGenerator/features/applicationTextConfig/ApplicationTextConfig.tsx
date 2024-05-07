@@ -4,6 +4,7 @@ import { texts } from "../../../../hooks/useTranslation/texts";
 import { useTranslation } from "../../../../hooks/useTranslation/useTranslation";
 import { ConfigureComponent } from "../../components/configureComponent/ConfigureComponent";
 import { IApplicationTextConfigProps } from "./IApplicationTextConfigProps";
+import styles from "./ApplicationText.module.scss";
 
 export const ApplicationTextConfig: React.FC<IApplicationTextConfigProps> = (
   props
@@ -32,7 +33,7 @@ export const ApplicationTextConfig: React.FC<IApplicationTextConfigProps> = (
           props.onChange(getTextByIndex(index));
         }}
       />
-      <p>{getTextByIndex(selectedButtonIndex)}</p>
+      <p className={styles.text}>{getTextByIndex(selectedButtonIndex)}</p>
     </ConfigureComponent>
   );
 };

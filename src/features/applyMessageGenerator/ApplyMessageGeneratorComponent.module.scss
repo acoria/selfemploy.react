@@ -25,10 +25,12 @@
 
 .title {
     margin-top: 0;
+    font-size: 1rem;
+    color: $secondary;
 }
 
-.divider{
+.divider {
     height: 0.1rem;
-    margin: 2rem 1.3rem;
+    margin: 1rem 0 0.8rem 0;
     background-color: $secondary;
 }

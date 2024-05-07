@@ -59,7 +59,6 @@ export const ApplicationOriginConfig: React.FC<
               texts.applyMessageGenerator.applicationOrigin.linkToProject
             )}
             onChange={onLinkChange}
-            widthInRem={40}
           />
         )}
         {applicationOrigin?.applicationOrigin ===
