@@ -26,6 +26,9 @@ export const SalutationConfig: React.FC<ISalutationConfigProps> = (props) => {
           lastName: lastName ?? "",
         });
       }
+      case Gender.ANONYMOUS: {
+        return t(texts.applyMessageGenerator.salutation.salutationAnonymous);
+      }
     }
   }, [lastName, gender]);
 
@@ -41,7 +44,7 @@ export const SalutationConfig: React.FC<ISalutationConfigProps> = (props) => {
           onChange={setGender}
           initialValue={props.initialValue}
         />
-        {gender && (
+        {(gender === Gender.MR || gender === Gender.MS) && (
           <InputField
             label="Nachname"
             onChange={(lastName) => setLastName(lastName)}

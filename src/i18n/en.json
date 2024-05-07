@@ -26,7 +26,7 @@
             "availabilityInfo": "Ich bin ab {{availableFrom}} verfügbar. ",
             "bestRegardsInformal": "Viele Grüße",
             "bestRegardsPolite": "Mit freundlichen Grüßen",
-            "buddyProfile": "Dies ist das Profil meines Kollegen: {{profileLink}}",
+            "codingBuddyProfileInfo": "Dies ist das Profil meines Kollegen: {{profileLink}}",
             "getInContractWithoutPlatformInfoWithoutLink": "Gerne {{wouldWho}} mit Ihnen über das Projekt austauschen.",
             "getInContractWithoutPlatformInfoWithLink": "Gerne {{wouldWho}} mit Ihnen über folgendes Projekt austauschen:",
             "getInContactWithPlatformInfo": "Gerne {{wouldWho}} mit Ihnen über folgendes Projekt auf {{projectInfo}} austauschen:",
@@ -39,6 +39,7 @@
         "salutation": {
             "mr": "Herr",
             "ms": "Frau",
+            "salutationAnonymous": "Sehr geehrte Damen und Herren,",
             "salutationMr": "Sehr geehrter Herr {{lastName}},",
             "salutationMs": "Sehr geehrte Frau {{lastName}},",
             "title": "Anrede"

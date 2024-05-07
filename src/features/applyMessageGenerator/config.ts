@@ -12,4 +12,10 @@ export const applyMessageGeneratorConfig: IApplyMessageGeneratorConfig = {
       text: "Wir sind zwei Frontend-Entwickler, die mit Interesse ihre Ausschreibung für mehrere Entwickler zur Kenntnis genommen haben. Wir haben bereits mehrere Jahre in unterschiedlichsten Projekten miteinander gearbeitet. Neben unserer Frontend Expertise besitzen wir beide einen unterschiedlichen Fokus, zum einen im Middleware-Bereich, zum anderen im Bereich Usability.",
     },
   ],
+  codingBuddyLink_freelancerMap:
+    "https://www.freelancermap.de/profil/software-architekt-251647",
+  codingBuddyLink_freelance:
+    "https://www.freelance.de/Freelancer/297373-Fullstack-Senior-Software-Engineer",
+  codingBuddyLink_linkedIn:
+    "https://www.linkedin.com/in/peter-hoffmann-979666243/",
 };

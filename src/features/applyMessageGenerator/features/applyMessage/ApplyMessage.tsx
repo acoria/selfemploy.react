@@ -8,6 +8,7 @@ import { ApplicationMedium } from "../applicationMediumConfig/types/ApplicationM
 import { Farewell } from "../farewellConfig/Farewell";
 import { ApplicantNumber } from "../applicantNumberConfig/ApplicantNumber";
 import { ReactNode } from "react";
+import { applyMessageGeneratorConfig } from "../../config";
 
 export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
   const { t } = useTranslation();
@@ -105,15 +106,28 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
 
   const getSecondProfileLink = (): ReactNode | string => {
     if (props.applyMessage?.applicantNumber === ApplicantNumber.DOUBLE) {
+      let codingBuddyLink = "";
+      switch (props.applyMessage.applicationOrigin?.applicationOrigin) {
+        case ApplicationOrigin.FREELANCERMAP:
+          codingBuddyLink =
+            applyMessageGeneratorConfig.codingBuddyLink_freelancerMap;
+          break;
+        case ApplicationOrigin.FREELANCE:
+          codingBuddyLink =
+            applyMessageGeneratorConfig.codingBuddyLink_freelance;
+          break;
+        default:
+          codingBuddyLink =
+            applyMessageGeneratorConfig.codingBuddyLink_linkedIn;
+      }
       return (
         <>
-          {t(texts.applyMessageGenerator.messageSection.buddyProfile, {
-            profileLink: (
-              <a href="https://www.freelancermap.de/profil/software-architekt-251647">
-                https://www.freelancermap.de/profil/software-architekt-251647
-              </a>
-            ),
-          })}
+          {t(
+            texts.applyMessageGenerator.messageSection.codingBuddyProfileInfo,
+            {
+              profileLink: <a href={codingBuddyLink}>{codingBuddyLink}</a>,
+            }
+          )}
           <br />
         </>
       );

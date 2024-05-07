@@ -41,11 +41,6 @@ export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
 
   return (
     <div className={styles.configuration}>
-      <SalutationConfig
-        onChange={(salutation) =>
-          setApplyMessage((applyMessage) => ({ ...applyMessage, salutation }))
-        }
-      />
       <LanguageConfig
         onChange={(language) =>
           setApplyMessage((applyMessage) => ({ ...applyMessage, language }))
@@ -59,6 +54,11 @@ export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
             ...applyMessage,
             applicantNumber,
           }))
+        }
+      />
+      <SalutationConfig
+        onChange={(salutation) =>
+          setApplyMessage((applyMessage) => ({ ...applyMessage, salutation }))
         }
       />
       <ApplicationTextConfig
