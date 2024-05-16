@@ -7,7 +7,7 @@ import { useTranslation } from "../../../../hooks/useTranslation/useTranslation"
 import { ApplicationMedium } from "../applicationMediumConfig/types/ApplicationMedium";
 import { Farewell } from "../farewellConfig/Farewell";
 import { ApplicantNumber } from "../applicantNumberConfig/ApplicantNumber";
-import { ReactNode } from "react";
+import { ReactElement, ReactNode } from "react";
 import { applyMessageGeneratorConfig } from "../../config";
 
 export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
@@ -42,7 +42,7 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
     }
   };
 
-  const getGetInContactMessage = (): string | JSX.Element => {
+  const getGetInContactMessage = (): string => {
     if (props.applyMessage?.applicationMedium === undefined) return "";
     let wouldPlaceholder;
     switch (props.applyMessage.applicantNumber) {
@@ -135,24 +135,26 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
     return "";
   };
 
-  const getConditions = () => {
-    return (
-      <>
-        {(props.applyMessage?.availableFrom ||
-          props.applyMessage?.hourlyRate) && (
-          <div>
-            {props.applyMessage?.availableFrom &&
-              t(texts.applyMessageGenerator.messageSection.availabilityInfo, {
-                availableFrom: props.applyMessage.availableFrom,
-              })}
-            {props.applyMessage?.hourlyRate &&
-              t(texts.applyMessageGenerator.messageSection.hourlyRateInfo, {
-                hourlyRate: props.applyMessage.hourlyRate,
-              })}
-          </div>
-        )}
-      </>
-    );
+  const getConditions = (): string => {
+    let conditions: string = "";
+
+    if (props.applyMessage?.availableFrom) {
+      conditions = t(
+        texts.applyMessageGenerator.messageSection.availabilityInfo,
+        {
+          availableFrom: props.applyMessage.availableFrom,
+        }
+      );
+    }
+
+    if (props.applyMessage?.hourlyRate) {
+      conditions =
+        conditions +
+        t(texts.applyMessageGenerator.messageSection.hourlyRateInfo, {
+          hourlyRate: props.applyMessage.hourlyRate,
+        });
+    }
+    return conditions;
   };
 
   const getFarewell = (): string => {
@@ -182,7 +184,7 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
       {props.applyMessage?.applicationMedium === ApplicationMedium.EMAIL && (
         <div>{getProjectLink()}</div>
       )}
-      {getConditions()}
+      <div>{getConditions()}</div>
       <br />
 
       <div>{getFarewell()}</div>
