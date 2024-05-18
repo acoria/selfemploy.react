@@ -3,10 +3,10 @@
 .copyButton {
     margin-top: 1rem;
     padding: 0.25rem 0.5rem;
-    background-color: $primary;
+    background-color: $accent;
     color: $white;
 }
 
 .copyButton:hover {
-    background-color: $primaryDark;
+    background-color: lighten($accent, 5%);
 }

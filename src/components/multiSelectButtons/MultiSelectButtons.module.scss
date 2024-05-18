@@ -15,6 +15,11 @@
     font-size: 0.75rem;
 }
 
+.button:hover {
+    background-color: lighten($primaryDark, 5%);
+    color: $white;
+}
+
 .selectedButton {
     background-color: $primary;
     color: $white;
