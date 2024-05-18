@@ -1,26 +1,25 @@
 import { useEffect, useState } from "react";
-import { IApplyMessage } from "../../../../core/types/IApplyMessage";
+import { IApplyMessageConfig } from "../../../../core/types/IApplyMessageConfig";
 import { applyMessageGeneratorConfig } from "../../config";
+import { HourlyRateConfig } from "../HourlyRateConfig/HourlyRateConfig";
+import { ApplicantNumber } from "../applicantNumberConfig/ApplicantNumber";
+import { ApplicantNumberConfig } from "../applicantNumberConfig/ApplicantNumberConfig";
 import { ApplicationMediumConfig } from "../applicationMediumConfig/ApplicationMediumConfig";
 import { ApplicationMedium } from "../applicationMediumConfig/types/ApplicationMedium";
 import { ApplicationOriginConfig } from "../applicationOriginConfig/ApplicationOriginConfig";
 import { ApplicationTextConfig } from "../applicationTextConfig/ApplicationTextConfig";
+import { AvailabilityConfig } from "../availabilityConfig/AvailabilityConfig";
 import { Farewell } from "../farewellConfig/Farewell";
 import { FarewellConfig } from "../farewellConfig/FarewellConfig";
 import { LanguageConfig } from "../languageConfig/LanguageConfig";
 import { Language } from "../languageConfig/types/Language";
 import { SalutationConfig } from "../salutationConfig/SalutationConfig";
 import { IMessageGeneratorConfigProps } from "./IMessageGeneratorConfigProps";
-import styles from "./MessageGeneratorConfig.module.scss";
-import { ApplicantNumber } from "../applicantNumberConfig/ApplicantNumber";
-import { ApplicantNumberConfig } from "../applicantNumberConfig/ApplicantNumberConfig";
-import { HourlyRateConfig } from "../HourlyRateConfig/HourlyRateConfig";
-import { AvailabilityConfig } from "../availabilityConfig/AvailabilityConfig";
 
 export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
   props
 ) => {
-  const [applyMessage, setApplyMessage] = useState<IApplyMessage>({
+  const [applyMessageConfig, setApplyMessageConfig] = useState<IApplyMessageConfig>({
     salutation: "",
     language: Language.DE,
     applicantNumber: ApplicantNumber.SINGLE,
@@ -36,21 +35,21 @@ export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
   });
 
   useEffect(() => {
-    props.onApplyMessageChange(applyMessage);
-  }, [applyMessage]);
+    props.onApplyMessageConfigChange(applyMessageConfig);
+  }, [applyMessageConfig]);
 
   return (
     <>
       <LanguageConfig
         onChange={(language) =>
-          setApplyMessage((applyMessage) => ({ ...applyMessage, language }))
+          setApplyMessageConfig((applyMessage) => ({ ...applyMessage, language }))
         }
-        initialValue={applyMessage.language}
+        initialValue={applyMessageConfig.language}
       />
       <ApplicantNumberConfig
-        initialValue={applyMessage.applicantNumber}
+        initialValue={applyMessageConfig.applicantNumber}
         onChange={(applicantNumber) =>
-          setApplyMessage((applyMessage) => ({
+          setApplyMessageConfig((applyMessage) => ({
             ...applyMessage,
             applicantNumber,
           }))
@@ -58,22 +57,22 @@ export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
       />
       <SalutationConfig
         onChange={(salutation) =>
-          setApplyMessage((applyMessage) => ({ ...applyMessage, salutation }))
+          setApplyMessageConfig((applyMessage) => ({ ...applyMessage, salutation }))
         }
       />
       <ApplicationTextConfig
         applicationTexts={applyMessageGeneratorConfig.applicationTexts}
         onChange={(applicationText) =>
-          setApplyMessage((applyMessage) => ({
+          setApplyMessageConfig((applyMessage) => ({
             ...applyMessage,
             applicationText,
           }))
         }
       />
       <ApplicationMediumConfig
-        initialValue={applyMessage.applicationMedium}
+        initialValue={applyMessageConfig.applicationMedium}
         onChange={(applicationMedium) =>
-          setApplyMessage((applyMessage) => ({
+          setApplyMessageConfig((applyMessage) => ({
             ...applyMessage,
             applicationMedium,
           }))
@@ -81,7 +80,7 @@ export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
       />
       <ApplicationOriginConfig
         onChange={(applicationOrigin) =>
-          setApplyMessage((applyMessage) => ({
+          setApplyMessageConfig((applyMessage) => ({
             ...applyMessage,
             applicationOrigin,
           }))
@@ -90,7 +89,7 @@ export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
       <AvailabilityConfig
         initialValue={false}
         onChange={(availableFrom) =>
-          setApplyMessage((applyMessage) => ({
+          setApplyMessageConfig((applyMessage) => ({
             ...applyMessage,
             availableFrom,
           }))
@@ -99,16 +98,16 @@ export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
       <HourlyRateConfig
         initialValue={false}
         onChange={(hourlyRate) =>
-          setApplyMessage((applyMessage) => ({
+          setApplyMessageConfig((applyMessage) => ({
             ...applyMessage,
             hourlyRate,
           }))
         }
       />
       <FarewellConfig
-        initialFarewell={applyMessage.farewell}
+        initialFarewell={applyMessageConfig.farewell}
         onChange={(farewell) =>
-          setApplyMessage((applyMessage) => ({ ...applyMessage, farewell }))
+          setApplyMessageConfig((applyMessage) => ({ ...applyMessage, farewell }))
         }
       />
     </>

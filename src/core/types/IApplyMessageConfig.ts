@@ -4,7 +4,7 @@ import { IApplicationOrigin } from "../../features/applyMessageGenerator/feature
 import { IFarewell } from "../../features/applyMessageGenerator/features/farewellConfig/IFarewell";
 import { Language } from "../../features/applyMessageGenerator/features/languageConfig/types/Language";
 
-export interface IApplyMessage {
+export interface IApplyMessageConfig {
   salutation: string;
   language: Language;
   applicantNumber: ApplicantNumber;

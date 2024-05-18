@@ -1,5 +1,5 @@
-import { IApplyMessage } from "../../../../core/types/IApplyMessage";
+import { IApplyMessageConfig } from "../../../../core/types/IApplyMessageConfig";
 
 export interface IMessageGeneratorConfigProps {
-  onApplyMessageChange: (applyMessage: IApplyMessage) => void;
+  onApplyMessageConfigChange: (applyMessage: IApplyMessageConfig) => void;
 }

@@ -1,5 +1,5 @@
-import { IApplyMessage } from "../../../../core/types/IApplyMessage";
+import { IApplyMessageConfig } from "../../../../core/types/IApplyMessageConfig";
 
 export interface IApplyMessageProps {
-  applyMessage: IApplyMessage | undefined;
+  applyMessageConfig: IApplyMessageConfig | undefined;
 }

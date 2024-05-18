@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IApplyMessage } from "../../core/types/IApplyMessage";
+import { IApplyMessageConfig } from "../../core/types/IApplyMessageConfig";
 import { texts } from "../../hooks/useTranslation/texts";
 import { useTranslation } from "../../hooks/useTranslation/useTranslation";
 import styles from "./ApplyMessageGeneratorComponent.module.scss";
@@ -9,7 +9,7 @@ import { ReactComponent as Icon } from "../../assets/icon.svg";
 
 export const ApplyMessageGeneratorComponent = () => {
   const { t } = useTranslation();
-  const [applyMessage, setApplyMessage] = useState<IApplyMessage | undefined>(
+  const [applyMessageConfig, setApplyMessageConfig] = useState<IApplyMessageConfig | undefined>(
     undefined
   );
   return (
@@ -24,13 +24,13 @@ export const ApplyMessageGeneratorComponent = () => {
         <h3 className={styles.title}>
           {t(texts.applyMessageGenerator.configSectionTitle)}
         </h3>
-        <MessageGeneratorConfig onApplyMessageChange={setApplyMessage} />
+        <MessageGeneratorConfig onApplyMessageConfigChange={setApplyMessageConfig} />
         <div className={styles.divider}></div>
         <div>
           <h3 className={styles.title}>
             {t(texts.applyMessageGenerator.messageSection.title)}
           </h3>
-          <ApplyMessage applyMessage={applyMessage} />
+          <ApplyMessage applyMessageConfig={applyMessageConfig} />
         </div>
       </div>
     </>
