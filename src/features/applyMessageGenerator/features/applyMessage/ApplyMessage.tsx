@@ -8,6 +8,7 @@ import { ApplicationMedium } from "../applicationMediumConfig/types/ApplicationM
 import { ApplicationOrigin } from "../applicationOriginConfig/types/ApplicationOrigin";
 import { Farewell } from "../farewellConfig/Farewell";
 import { IApplyMessageProps } from "./IApplyMessageProps";
+import styles from "./ApplyMessage.module.scss";
 
 export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
   const { t } = useTranslation();
@@ -68,7 +69,8 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
         );
       }
       case ApplicationMedium.EMAIL: {
-        if (props.applyMessageConfig?.applicationOrigin === undefined) return "";
+        if (props.applyMessageConfig?.applicationOrigin === undefined)
+          return "";
         switch (props.applyMessageConfig?.applicationOrigin.applicationOrigin) {
           case ApplicationOrigin.FREELANCE:
           case ApplicationOrigin.FREELANCERMAP: {
@@ -78,8 +80,8 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
               {
                 wouldWho: wouldPlaceholder,
                 projectInfo:
-                  props.applyMessageConfig?.applicationOrigin?.applicationOrigin ??
-                  "",
+                  props.applyMessageConfig?.applicationOrigin
+                    ?.applicationOrigin ?? "",
               }
             );
           }
@@ -174,20 +176,32 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
     }
   };
 
+  const copyHTMLToClipboard = async () => {
+    const htmlContent =
+      document.getElementById("messageContent")?.innerHTML ?? "";
+    const blob = new Blob([htmlContent], { type: "text/html" });
+    const clipboardItem = new ClipboardItem({ "text/html": blob });
+    await navigator.clipboard.write([clipboardItem]);
+  };
+
   return (
     <>
-      <p>{props.applyMessageConfig?.salutation}</p>
-      <p>{props.applyMessageConfig?.applicationText}</p>
-      {getSecondProfileLink()}
-      <div>{getGetInContactMessage()}</div>
-      {props.applyMessageConfig?.applicationMedium === ApplicationMedium.EMAIL && (
-        <div>{getProjectLink()}</div>
-      )}
-      <div>{getConditions()}</div>
-      <br />
+      <div id="messageContent">
+        <p>{props.applyMessageConfig?.salutation}</p>
+        <p>{props.applyMessageConfig?.applicationText}</p>
+        {getSecondProfileLink()}
+        <div>{getGetInContactMessage()}</div>
+        {props.applyMessageConfig?.applicationMedium ===
+          ApplicationMedium.EMAIL && <div>{getProjectLink()}</div>}
+        <div>{getConditions()}</div>
+        <br />
 
-      <div>{getFarewell()}</div>
-      <div>{props.applyMessageConfig?.farewell.name ?? ""}</div>
+        <div>{getFarewell()}</div>
+        <div>{props.applyMessageConfig?.farewell.name ?? ""}</div>
+      </div>
+      <button className={styles.copyButton} onClick={copyHTMLToClipboard}>
+        Copy to clipboard
+      </button>
     </>
   );
 };
