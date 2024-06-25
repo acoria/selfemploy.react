@@ -1,7 +1,8 @@
 {
     "general": {
-        "yes": "ja",
-        "no": "nein"
+        "copyToClipboard": "Copy to clipboard",
+        "no": "nein",
+        "yes": "ja"
     },
     "applyMessageGenerator": {
         "appTitle": "Bewerbungsschreiben-Konfigurator",
@@ -32,7 +33,9 @@
             "getInContractWithoutPlatformInfoWithLink": "Gerne {{wouldWho}} mit Ihnen über folgendes Projekt austauschen:",
             "getInContactWithPlatformInfo": "Gerne {{wouldWho}} mit Ihnen über folgendes Projekt auf {{projectInfo}} austauschen:",
             "hourlyRateInfo": "Mein Stundensatz beträgt {{hourlyRate}}€.",
-            "title": "Nachricht",
+            "messageTitle": "Nachricht",
+            "subject": "Bewerbung für {{website}}-Projekt {{projectId}}",
+            "subjectTitle": "Betreff",
             "wouldI": "würde ich mich",
             "wouldWe": "würden wir uns"
         },

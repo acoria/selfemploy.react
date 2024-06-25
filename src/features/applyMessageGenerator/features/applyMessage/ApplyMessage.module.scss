@@ -1,12 +1,13 @@
-@import '../../../../colors.scss';
+@import '../../../../styles/core/mixins.scss'
 
-.copyButton {
-    margin-top: 1rem;
-    padding: 0.25rem 0.5rem;
-    background-color: $accent;
-    color: $white;
-}
+// .copyButton {
+// @include actionButton();
+// margin-top: 1rem;
+// padding: 0.25rem 0.5rem;
+// background-color: $accent;
+// color: $white;
+// }
 
-.copyButton:hover {
-    background-color: lighten($accent, 5%);
-}
+// .copyButton:hover {
+//     background-color: lighten($accent, 5%);
+// }

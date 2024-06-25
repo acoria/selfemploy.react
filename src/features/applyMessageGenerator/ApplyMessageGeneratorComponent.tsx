@@ -6,6 +6,8 @@ import { useTranslation } from "../../hooks/useTranslation/useTranslation";
 import styles from "./ApplyMessageGeneratorComponent.module.scss";
 import { ApplyMessage } from "./features/applyMessage/ApplyMessage";
 import { MessageGeneratorConfig } from "./features/messageGeneratorConfig/MessageGeneratorConfig";
+import { ApplicationMedium } from "./features/applicationMediumConfig/types/ApplicationMedium";
+import { ApplySubject } from "./features/applySubject/ApplySubject";
 
 export const ApplyMessageGeneratorComponent = () => {
   const { t } = useTranslation();
@@ -28,11 +30,24 @@ export const ApplyMessageGeneratorComponent = () => {
           onApplyMessageConfigChange={setApplyMessageConfig}
         />
         <div className={styles.divider}></div>
-        <div>
-          <h3 className={styles.title}>
-            {t(texts.applyMessageGenerator.messageSection.title)}
-          </h3>
-          <ApplyMessage applyMessageConfig={applyMessageConfig} />
+        <div className={styles.generatedMessageSection}>
+          <div>
+            <h3 className={styles.title}>
+              {t(texts.applyMessageGenerator.messageSection.messageTitle)}
+            </h3>
+            <ApplyMessage applyMessageConfig={applyMessageConfig} />
+          </div>
+          {applyMessageConfig?.applicationMedium === ApplicationMedium.EMAIL &&
+            applyMessageConfig.applicationOrigin && (
+              <div>
+                <h3 className={styles.title}>
+                  {t(texts.applyMessageGenerator.messageSection.subjectTitle)}
+                </h3>
+                <ApplySubject
+                  applicationOrigin={applyMessageConfig.applicationOrigin}
+                />
+              </div>
+            )}
         </div>
       </div>
     </>

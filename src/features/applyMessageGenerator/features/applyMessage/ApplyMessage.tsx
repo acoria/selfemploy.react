@@ -9,6 +9,8 @@ import { ApplicationOrigin } from "../applicationOriginConfig/types/ApplicationO
 import { Farewell } from "../farewellConfig/Farewell";
 import { IApplyMessageProps } from "./IApplyMessageProps";
 import styles from "./ApplyMessage.module.scss";
+import { copyToClipboard } from "../../../../services/copyToClipboard";
+import { ActionButton } from "../../../../components/actionButton/ActionButton";
 
 export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
   const { t } = useTranslation();
@@ -177,11 +179,7 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
   };
 
   const copyHTMLToClipboard = async () => {
-    const htmlContent =
-      document.getElementById("messageContent")?.innerHTML ?? "";
-    const blob = new Blob([htmlContent], { type: "text/html" });
-    const clipboardItem = new ClipboardItem({ "text/html": blob });
-    await navigator.clipboard.write([clipboardItem]);
+    copyToClipboard(document.getElementById("messageContent")?.innerHTML ?? "");
   };
 
   return (
@@ -199,9 +197,10 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
         <div>{getFarewell()}</div>
         <div>{props.applyMessageConfig?.farewell.name ?? ""}</div>
       </div>
-      <button className={styles.copyButton} onClick={copyHTMLToClipboard}>
-        Copy to clipboard
-      </button>
+      <ActionButton
+        onClick={copyHTMLToClipboard}
+        caption={t(texts.general.copyToClipboard)}
+      />
     </>
   );
 };
