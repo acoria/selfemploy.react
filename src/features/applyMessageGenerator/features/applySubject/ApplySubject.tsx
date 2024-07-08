@@ -8,7 +8,7 @@ export const ApplySubject: React.FC<IApplySubjectProps> = (props) => {
   const { t } = useTranslation();
 
   const copyHTMLToClipboard = async () => {
-    copyToClipboard(document.getElementById("subject")?.innerHTML ?? "");
+    copyToClipboard(document.getElementById("subject")?.outerHTML ?? "");
   };
 
   return (
