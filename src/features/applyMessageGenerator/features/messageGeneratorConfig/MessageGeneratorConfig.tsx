@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { IApplyMessageConfig } from "../../../../core/types/IApplyMessageConfig";
-import { applyMessageGeneratorConfig } from "../../config";
+// import { settings } from "../../config";
 import { HourlyRateConfig } from "../HourlyRateConfig/HourlyRateConfig";
 import { ApplicantNumber } from "../applicantNumberConfig/ApplicantNumber";
 import { ApplicantNumberConfig } from "../applicantNumberConfig/ApplicantNumberConfig";
@@ -15,10 +15,13 @@ import { LanguageConfig } from "../languageConfig/LanguageConfig";
 import { Language } from "../languageConfig/types/Language";
 import { SalutationConfig } from "../salutationConfig/SalutationConfig";
 import { IMessageGeneratorConfigProps } from "./IMessageGeneratorConfigProps";
+import { useSettingsStorage } from "../../hooks/useSettingsStorage";
 
 export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
   props
 ) => {
+
+  const [settings] = useSettingsStorage()
   const [applyMessageConfig, setApplyMessageConfig] = useState<IApplyMessageConfig>({
     salutation: "",
     language: Language.DE,
@@ -30,7 +33,7 @@ export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
     hourlyRate: undefined,
     farewell: {
       farewell: Farewell.POLITE,
-      name: applyMessageGeneratorConfig.myName,
+      name: settings.yourName,
     },
   });
 
@@ -61,7 +64,7 @@ export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
         }
       />
       <ApplicationTextConfig
-        applicationTexts={applyMessageGeneratorConfig.applicationTexts}
+        applicationTexts={settings.applicationTexts}
         onChange={(applicationText) =>
           setApplyMessageConfig((applyMessage) => ({
             ...applyMessage,

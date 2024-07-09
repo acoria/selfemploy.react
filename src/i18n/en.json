@@ -15,12 +15,19 @@
             "projectTitle": "Projekttitel"
         },
         "applicationText": {
-            "title": "Bewerbungstext"
+            "title": "Bewerbungstext",
+            "newApplicationTextLabel": "Bewerbungstext"
+        },
+        "applicationTexts": {
+            "toggleButtonTypeLabel": "Toggle-Button Name",
+            "applicationTextLabel": "Bewerbungstext"
         },
         "availabilityConfigTitle": "Verfügbar ab",
         "configSectionTitle": "Konfiguration",
         "farewellConfig": {
-            "title": "Verabschiedung",
+            "title": "Verabschiedung"
+        },
+        "general": {
             "nameInputFieldLabel": "Dein Name"
         },
         "hourlyRateConfigTitle": "Stundensatz",
@@ -48,6 +55,13 @@
             "salutationMr": "Sehr geehrter Herr {{lastName}},",
             "salutationMs": "Sehr geehrte Frau {{lastName}},",
             "title": "Anrede"
+        },
+        "settings": {
+            "codingBuddyLinkFreelancerMap": "Coding Buddy Link (freelancermap.de)",
+            "codingBuddyLinkFreelance": "Coding Buddy Link (freelance.de)",
+            "codingBuddyLinkLinkedIn": "Coding Buddy Link (linkedIn)",
+            "newApplicationTextLabel": "Neuer Bewerbungstext",
+            "title": "Einstellungen"
         }
     },
     "demo": "Demo {{test}} {{test}} {{test}}"

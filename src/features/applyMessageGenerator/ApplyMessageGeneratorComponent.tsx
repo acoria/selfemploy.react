@@ -8,6 +8,8 @@ import { ApplyMessage } from "./features/applyMessage/ApplyMessage";
 import { MessageGeneratorConfig } from "./features/messageGeneratorConfig/MessageGeneratorConfig";
 import { ApplicationMedium } from "./features/applicationMediumConfig/types/ApplicationMedium";
 import { ApplySubject } from "./features/applySubject/ApplySubject";
+import { Settings } from "./features/settings/Settings";
+import { Divider } from "../../components/divider/Divider";
 
 export const ApplyMessageGeneratorComponent = () => {
   const { t } = useTranslation();
@@ -23,13 +25,14 @@ export const ApplyMessageGeneratorComponent = () => {
         </div>
       </div>
       <div className={styles.content}>
+        <Settings />
         <h3 className={styles.title}>
           {t(texts.applyMessageGenerator.configSectionTitle)}
         </h3>
         <MessageGeneratorConfig
           onApplyMessageConfigChange={setApplyMessageConfig}
         />
-        <div className={styles.divider}></div>
+        <Divider />
         <div className={styles.generatedMessageSection}>
           <div>
             <h3 className={styles.title}>

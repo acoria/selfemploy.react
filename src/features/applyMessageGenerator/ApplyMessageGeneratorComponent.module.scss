@@ -1,4 +1,5 @@
 @import '../../../src/styles/core/colors.scss';
+@import '../../../src/styles/core/global.scss';
 
 .header {
     display: flex;
@@ -25,14 +26,7 @@
 
 .title {
     margin-top: 0;
-    font-size: 1rem;
-    color: $secondary;
-}
-
-.divider {
-    height: 0.1rem;
-    margin: 1rem 0 0.8rem 0;
-    background-color: $secondary;
+    @include sectionTitle();
 }
 
 .generatedMessageSection {

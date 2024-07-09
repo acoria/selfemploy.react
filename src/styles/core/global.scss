@@ -1,0 +1,6 @@
+@import './colors.scss';
+
+@mixin sectionTitle() {
+    font-size: 1rem;
+    color: $secondary;
+}

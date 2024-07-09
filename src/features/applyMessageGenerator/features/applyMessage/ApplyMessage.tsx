@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { NotImplementedError } from "../../../../core/errors/NotImplementedError";
 import { texts } from "../../../../hooks/useTranslation/texts";
 import { useTranslation } from "../../../../hooks/useTranslation/useTranslation";
-import { applyMessageGeneratorConfig } from "../../config";
+import { settings } from "../../config";
 import { ApplicantNumber } from "../applicantNumberConfig/ApplicantNumber";
 import { ApplicationMedium } from "../applicationMediumConfig/types/ApplicationMedium";
 import { ApplicationOrigin } from "../applicationOriginConfig/types/ApplicationOrigin";
@@ -112,15 +112,15 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
       switch (props.applyMessageConfig.applicationOrigin?.applicationOrigin) {
         case ApplicationOrigin.FREELANCERMAP:
           codingBuddyLink =
-            applyMessageGeneratorConfig.codingBuddyLink_freelancerMap;
+            settings.codingBuddyLinkFreelancerMap;
           break;
         case ApplicationOrigin.FREELANCE:
           codingBuddyLink =
-            applyMessageGeneratorConfig.codingBuddyLink_freelance;
+            settings.codingBuddyLinkFreelance;
           break;
         default:
           codingBuddyLink =
-            applyMessageGeneratorConfig.codingBuddyLink_linkedIn;
+            settings.codingBuddyLinkLinkedIn;
       }
       return (
         <>

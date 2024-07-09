@@ -35,9 +35,7 @@ export const FarewellConfig: React.FC<IFarewellConfigProps> = (props) => {
           }}
         />
         <InputField
-          label={t(
-            texts.applyMessageGenerator.farewellConfig.nameInputFieldLabel
-          )}
+          label={t(texts.applyMessageGenerator.general.nameInputFieldLabel)}
           initialValue={props.initialFarewell?.name}
           onChange={(name) => {
             setFarewell((previous) => {

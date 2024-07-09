@@ -1,7 +1,7 @@
-import { IApplyMessageGeneratorConfig } from "./types/IApplyMessageGeneratorConfig";
+import { ISettings } from "./types/ISettings";
 
-export const applyMessageGeneratorConfig: IApplyMessageGeneratorConfig = {
-  myName: "Verena Tewes",
+export const settings: ISettings = {
+  yourName: "Verena Tewes",
   applicationTexts: [
     {
       type: "UX",
@@ -12,10 +12,10 @@ export const applyMessageGeneratorConfig: IApplyMessageGeneratorConfig = {
       text: "Wir sind zwei Frontend-Entwickler, die mit Interesse ihre Ausschreibung für mehrere Entwickler zur Kenntnis genommen haben. Wir haben bereits mehrere Jahre in unterschiedlichsten Projekten miteinander gearbeitet. Neben unserer Frontend Expertise besitzen wir beide einen unterschiedlichen Fokus, zum einen im Middleware-Bereich, zum anderen im Bereich Usability.",
     },
   ],
-  codingBuddyLink_freelancerMap:
+  codingBuddyLinkFreelancerMap:
     "https://www.freelancermap.de/profil/software-architekt-251647",
-  codingBuddyLink_freelance:
+  codingBuddyLinkFreelance:
     "https://www.freelance.de/Freelancer/297373-Fullstack-Senior-Software-Engineer",
-  codingBuddyLink_linkedIn:
+  codingBuddyLinkLinkedIn:
     "https://www.linkedin.com/in/peter-hoffmann-979666243/",
 };
