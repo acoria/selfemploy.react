@@ -3,12 +3,12 @@ import { InputField } from "../../../../components/inputField/InputField";
 import { texts } from "../../../../hooks/useTranslation/texts";
 import { useTranslation } from "../../../../hooks/useTranslation/useTranslation";
 import { ApplicationTexts } from "../../applicationTexts/ApplicationTexts";
-import { useSettingsStorage } from "../../hooks/useSettingsStorage";
+import { useSettings } from "../../hooks/useSettings";
 import styles from "./Settings.module.scss";
 
 export const Settings: React.FC = () => {
   const { t } = useTranslation();
-  const [settings, setSettings] = useSettingsStorage();
+  const [settings, setSettings] = useSettings();
   const inputFieldWidthInRem = 40;
 
   const updateName = (name: string) => {

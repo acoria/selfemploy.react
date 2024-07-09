@@ -2,14 +2,14 @@ import { useState } from "react";
 import { InputField } from "../../../components/inputField/InputField";
 import { texts } from "../../../hooks/useTranslation/texts";
 import { useTranslation } from "../../../hooks/useTranslation/useTranslation";
-import { useSettingsStorage } from "../hooks/useSettingsStorage";
-import { ApplicationText } from "./applicationText/ApplicationText";
-import styles from "./ApplicationTexts.module.css";
+import { useSettings } from "../hooks/useSettings";
 import { IApplicationText } from "../types/IApplicationText";
+import styles from "./ApplicationTexts.module.css";
+import { ApplicationText } from "./applicationText/ApplicationText";
 
 export const ApplicationTexts: React.FC = () => {
   const { t } = useTranslation();
-  const [settings, setSettings] = useSettingsStorage();
+  const [settings, setSettings] = useSettings();
   const [newApplicationText, setNewApplicationText] = useState<string>("");
   const [newApplicationTextType, setNewApplicationTextType] =
     useState<string>("");
@@ -17,7 +17,7 @@ export const ApplicationTexts: React.FC = () => {
   const removeApplicationText = (applicationText: IApplicationText) => {
     setSettings((previous) => {
       const index = previous.applicationTexts.findIndex(
-        (applText) => applText === applicationText
+        (item) => item === applicationText
       );
       index !== undefined && previous.applicationTexts.splice(index, 1);
       return {
