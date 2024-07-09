@@ -44,6 +44,14 @@ export const ApplicationOriginConfig: React.FC<
     });
   };
 
+  const onProjectTitleChange = (projectTitle: string) => {
+    setApplicationOrigin((previous) => {
+      const newApplicationOrigin = { ...previous, projectTitle };
+      props.onChange(newApplicationOrigin);
+      return newApplicationOrigin;
+    });
+  };
+
   return (
     <ConfigureComponent
       title={t(texts.applyMessageGenerator.applicationOrigin.title)}
@@ -52,6 +60,10 @@ export const ApplicationOriginConfig: React.FC<
         <EnumMultiSelectButtons
           enumType={ApplicationOrigin}
           onChange={onApplicationOriginChange}
+        />
+        <InputField
+          label={t(texts.applyMessageGenerator.applicationOrigin.projectTitle)}
+          onChange={onProjectTitleChange}
         />
         {applicationOrigin && (
           <InputField

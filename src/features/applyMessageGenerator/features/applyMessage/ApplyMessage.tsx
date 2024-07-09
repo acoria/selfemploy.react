@@ -21,7 +21,7 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
       case ApplicationOrigin.OTHER: {
         return (
           <a href={props.applyMessageConfig?.applicationOrigin.link}>
-            {props.applyMessageConfig?.applicationOrigin.link}
+            {props.applyMessageConfig?.applicationOrigin.projectTitle}
           </a>
         );
       }
@@ -29,9 +29,9 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
         return (
           <>
             {props.applyMessageConfig?.applicationOrigin.projectId && (
-              <a href={props.applyMessageConfig?.applicationOrigin.link}>{`${t(
+              <a href={props.applyMessageConfig?.applicationOrigin.link}>{`${props.applyMessageConfig.applicationOrigin.projectTitle} (${t(
                 texts.applyMessageGenerator.projectId
-              )} ${props.applyMessageConfig?.applicationOrigin.projectId}`}</a>
+              )} ${props.applyMessageConfig?.applicationOrigin.projectId})`}</a>
             )}
           </>
         );

@@ -11,7 +11,8 @@
         "applicationOrigin": {
             "title": "Herkunft (angeboten auf)",
             "linkToProject": "Link",
-            "projectId": "Projekt ID"
+            "projectId": "Projekt ID",
+            "projectTitle": "Projekttitel"
         },
         "applicationText": {
             "title": "Bewerbungstext"
@@ -34,7 +35,7 @@
             "getInContactWithPlatformInfo": "Gerne {{wouldWho}} mit Ihnen über folgendes Projekt auf {{projectInfo}} austauschen:",
             "hourlyRateInfo": "Mein Stundensatz beträgt {{hourlyRate}}€.",
             "messageTitle": "Nachricht",
-            "subject": "Bewerbung für {{website}}-Projekt {{projectId}}",
+            "subject": "Bewerbung für {{website}}-Projekt {{projectInfo}}",
             "subjectTitle": "Betreff",
             "wouldI": "würde ich mich",
             "wouldWe": "würden wir uns"
