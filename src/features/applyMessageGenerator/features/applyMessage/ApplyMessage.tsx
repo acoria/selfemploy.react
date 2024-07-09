@@ -8,8 +8,7 @@ import { ApplicationMedium } from "../applicationMediumConfig/types/ApplicationM
 import { ApplicationOrigin } from "../applicationOriginConfig/types/ApplicationOrigin";
 import { Farewell } from "../farewellConfig/Farewell";
 import { IApplyMessageProps } from "./IApplyMessageProps";
-import styles from "./ApplyMessage.module.scss";
-import { copyToClipboard } from "../../../../services/copyToClipboard";
+import { copyHTMLToClipboard } from "../../../../services/copyHTMLToClipboard";
 import { ActionButton } from "../../../../components/actionButton/ActionButton";
 
 export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
@@ -178,8 +177,8 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
     }
   };
 
-  const copyHTMLToClipboard = async () => {
-    copyToClipboard(document.getElementById("messageContent")?.innerHTML ?? "");
+  const copyToClipboard = async () => {
+    copyHTMLToClipboard(document.getElementById("messageContent")?.innerHTML ?? "");
   };
 
   return (
@@ -198,7 +197,7 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
         <div>{props.applyMessageConfig?.farewell.name ?? ""}</div>
       </div>
       <ActionButton
-        onClick={copyHTMLToClipboard}
+        onClick={copyToClipboard}
         caption={t(texts.general.copyToClipboard)}
       />
     </>
