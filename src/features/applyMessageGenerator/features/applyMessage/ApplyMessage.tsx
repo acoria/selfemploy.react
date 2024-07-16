@@ -10,6 +10,7 @@ import { Farewell } from "../farewellConfig/Farewell";
 import { IApplyMessageProps } from "./IApplyMessageProps";
 import { copyHTMLToClipboard } from "../../../../services/copyHTMLToClipboard";
 import { ActionButton } from "../../../../components/actionButton/ActionButton";
+import { TextToHTMLConverter } from "../../../../services/TextToHTMLConverter";
 
 export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
   const { t } = useTranslation();
@@ -186,7 +187,16 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
     <>
       <div id="messageContent">
         <p>{props.applyMessageConfig?.salutation}</p>
-        <p>{props.applyMessageConfig?.applicationText}</p>
+        <p
+          dangerouslySetInnerHTML={{
+            __html: `${
+              props.applyMessageConfig?.applicationText &&
+              TextToHTMLConverter.convert(
+                props.applyMessageConfig?.applicationText
+              )
+            }`,
+          }}
+        ></p>
         {getSecondProfileLink()}
         <div>{getGetInContactMessage()}</div>
         {props.applyMessageConfig?.applicationMedium ===
