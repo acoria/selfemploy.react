@@ -4,10 +4,16 @@
 .header {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    column-gap: 0.5rem;
+    justify-content: space-between;
     background-color: $primary;
     padding: 0.5rem;
+}
+
+.headerLeft {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 0.5rem;
 }
 
 .headerTitle {

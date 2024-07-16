@@ -13,7 +13,7 @@ export const ApplicationTexts: React.FC = () => {
   const { t } = useTranslation();
   const [settings, setSettings] = useSettings();
   const [newApplicationText, setNewApplicationText] = useState<string>("");
-  const [newApplicationTextType, setNewApplicationTextType] =
+  const [newApplicationTextTitle, setNewApplicationTextTitle] =
     useState<string>("");
 
   const removeApplicationText = (applicationText: IApplicationText) => {
@@ -33,13 +33,15 @@ export const ApplicationTexts: React.FC = () => {
     setSettings((previous) => {
       previous.applicationTexts.push({
         text: newApplicationText,
-        type: newApplicationTextType,
+        type: newApplicationTextTitle,
       });
       return {
         ...previous,
         applicationTexts: previous.applicationTexts,
       };
     });
+    setNewApplicationText("");
+    setNewApplicationTextTitle("");
   };
 
   const applicationTexts = settings.applicationTexts.map(
@@ -67,7 +69,8 @@ export const ApplicationTexts: React.FC = () => {
           label={t(
             texts.applyMessageGenerator.applicationTexts.toggleButtonTypeLabel
           )}
-          onChange={setNewApplicationTextType}
+          initialValue={newApplicationTextTitle}
+          onChange={setNewApplicationTextTitle}
         />
         <label htmlFor="applicationText">
           {t(

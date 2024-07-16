@@ -16,16 +16,26 @@ export const ApplyMessageGeneratorComponent = () => {
   const [applyMessageConfig, setApplyMessageConfig] = useState<
     IApplyMessageConfig | undefined
   >(undefined);
+
+  const [showSettings, setShowSettings] = useState<boolean>(false);
+
   return (
     <>
       <div className={styles.header}>
-        <Icon className={styles.icon} />
-        <div className={styles.headerTitle}>
-          {t(texts.applyMessageGenerator.appTitle)}
+        <div className={styles.headerLeft}>
+          <Icon className={styles.icon} />
+          <div className={styles.headerTitle}>
+            {t(texts.applyMessageGenerator.appTitle)}
+          </div>
+        </div>
+        <div className={styles.headerRight}>
+          <button onClick={() => setShowSettings((previous) => !previous)}>
+            Settings
+          </button>
         </div>
       </div>
       <div className={styles.content}>
-        <Settings />
+        {showSettings && <Settings />}
         <h3 className={styles.title}>
           {t(texts.applyMessageGenerator.configSectionTitle)}
         </h3>
