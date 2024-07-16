@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { Divider } from "../../../components/divider/Divider";
 import { InputField } from "../../../components/inputField/InputField";
 import { texts } from "../../../hooks/useTranslation/texts";
 import { useTranslation } from "../../../hooks/useTranslation/useTranslation";
 import { useSettings } from "../hooks/useSettings";
 import { IApplicationText } from "../types/IApplicationText";
-import styles from "./ApplicationTexts.module.css";
+import styles from "./ApplicationTexts.module.scss";
 import { ApplicationText } from "./applicationText/ApplicationText";
+import { TextToHTMLConverter } from "../../../services/TextToHTMLConverter";
 
 export const ApplicationTexts: React.FC = () => {
   const { t } = useTranslation();
@@ -40,18 +42,23 @@ export const ApplicationTexts: React.FC = () => {
     });
   };
 
-  const applicationTexts = settings.applicationTexts.map((applicationText) => (
-    <div key={applicationText.type} className={styles.applicationTextEntry}>
-      <ApplicationText applicationText={applicationText} />
-      <button
-        onClick={() => {
-          removeApplicationText(applicationText);
-        }}
-      >
-        Remove
-      </button>
-    </div>
-  ));
+  const applicationTexts = settings.applicationTexts.map(
+    (applicationText, index) => (
+      <div key={`${applicationText.type}_${index}`}>
+        <div className={styles.applicationTextEntry}>
+          <ApplicationText applicationText={applicationText} />
+          <button
+            onClick={() => {
+              removeApplicationText(applicationText);
+            }}
+          >
+            Remove
+          </button>
+        </div>
+        {index < settings.applicationTexts.length - 1 && <Divider />}
+      </div>
+    )
+  );
 
   return (
     <>
@@ -76,6 +83,15 @@ export const ApplicationTexts: React.FC = () => {
           rows={10}
           value={newApplicationText}
         />
+        {newApplicationText && (
+          <div className={styles.wysiwyg}>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: TextToHTMLConverter.convert(newApplicationText),
+              }}
+            ></div>
+          </div>
+        )}
         <button onClick={() => addApplicationText()}>Add</button>
       </div>
       <h4 className={styles.applicationTextLabel}>
