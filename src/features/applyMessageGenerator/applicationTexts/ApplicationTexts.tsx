@@ -40,20 +40,18 @@ export const ApplicationTexts: React.FC = () => {
     });
   };
 
-  const applicationTexts = settings.applicationTexts.map(
-    (applicationText, index) => (
-      <div key={applicationText.type}>
-        <ApplicationText applicationText={applicationText} />
-        <button
-          onClick={() => {
-            removeApplicationText(applicationText);
-          }}
-        >
-          Remove
-        </button>
-      </div>
-    )
-  );
+  const applicationTexts = settings.applicationTexts.map((applicationText) => (
+    <div key={applicationText.type} className={styles.applicationTextEntry}>
+      <ApplicationText applicationText={applicationText} />
+      <button
+        onClick={() => {
+          removeApplicationText(applicationText);
+        }}
+      >
+        Remove
+      </button>
+    </div>
+  ));
 
   return (
     <>
@@ -77,10 +75,12 @@ export const ApplicationTexts: React.FC = () => {
           cols={80}
           rows={10}
           value={newApplicationText}
-        ></textarea>
+        />
         <button onClick={() => addApplicationText()}>Add</button>
       </div>
-      <h4 className={styles.applicationTextLabel}>Application texts</h4>
+      <h4 className={styles.applicationTextLabel}>
+        {t(texts.applyMessageGenerator.applicationTexts.applicationTextsLabel)}
+      </h4>
       <div>{applicationTexts}</div>
     </>
   );

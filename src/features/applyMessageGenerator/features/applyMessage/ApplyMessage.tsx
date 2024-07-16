@@ -29,9 +29,11 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
         return (
           <>
             {props.applyMessageConfig?.applicationOrigin.projectId && (
-              <a href={props.applyMessageConfig?.applicationOrigin.link}>{`${props.applyMessageConfig.applicationOrigin.projectTitle} (${t(
-                texts.applyMessageGenerator.projectId
-              )} ${props.applyMessageConfig?.applicationOrigin.projectId})`}</a>
+              <a href={props.applyMessageConfig?.applicationOrigin.link}>{`${
+                props.applyMessageConfig.applicationOrigin.projectTitle
+              } (${t(texts.applyMessageGenerator.projectId)} ${
+                props.applyMessageConfig?.applicationOrigin.projectId
+              })`}</a>
             )}
           </>
         );
@@ -65,7 +67,7 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
       case ApplicationMedium.WEBSITE: {
         return t(
           texts.applyMessageGenerator.messageSection
-            .getInContractWithoutPlatformInfoWithoutLink,
+            .getInContactWithoutPlatformInfoWithoutLink,
           { wouldWho: wouldPlaceholder }
         );
       }
@@ -89,7 +91,7 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
           case ApplicationOrigin.OTHER: {
             return t(
               texts.applyMessageGenerator.messageSection
-                .getInContractWithoutPlatformInfoWithLink,
+                .getInContactWithoutPlatformInfoWithLink,
               { wouldWho: wouldPlaceholder }
             );
           }
@@ -111,16 +113,13 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
       let codingBuddyLink = "";
       switch (props.applyMessageConfig.applicationOrigin?.applicationOrigin) {
         case ApplicationOrigin.FREELANCERMAP:
-          codingBuddyLink =
-            settings.codingBuddyLinkFreelancerMap;
+          codingBuddyLink = settings.codingBuddyLinkFreelancerMap;
           break;
         case ApplicationOrigin.FREELANCE:
-          codingBuddyLink =
-            settings.codingBuddyLinkFreelance;
+          codingBuddyLink = settings.codingBuddyLinkFreelance;
           break;
         default:
-          codingBuddyLink =
-            settings.codingBuddyLinkLinkedIn;
+          codingBuddyLink = settings.codingBuddyLinkLinkedIn;
       }
       return (
         <>
@@ -178,7 +177,9 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
   };
 
   const copyToClipboard = async () => {
-    copyHTMLToClipboard(document.getElementById("messageContent")?.innerHTML ?? "");
+    copyHTMLToClipboard(
+      document.getElementById("messageContent")?.innerHTML ?? ""
+    );
   };
 
   return (

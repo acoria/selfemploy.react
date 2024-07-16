@@ -19,8 +19,9 @@
             "newApplicationTextLabel": "Bewerbungstext"
         },
         "applicationTexts": {
-            "toggleButtonTypeLabel": "Toggle-Button Name",
-            "applicationTextLabel": "Bewerbungstext"
+            "applicationTextsLabel": "Bewerbungstexte",
+            "applicationTextLabel": "Bewerbungstext",
+            "toggleButtonTypeLabel": "Titel"
         },
         "availabilityConfigTitle": "Verfügbar ab",
         "configSectionTitle": "Konfiguration",
@@ -37,8 +38,8 @@
             "bestRegardsInformal": "Viele Grüße",
             "bestRegardsPolite": "Mit freundlichen Grüßen",
             "codingBuddyProfileInfo": "Dies ist das Profil meines Kollegen: {{profileLink}}",
-            "getInContractWithoutPlatformInfoWithoutLink": "Gerne {{wouldWho}} mit Ihnen über das Projekt austauschen.",
-            "getInContractWithoutPlatformInfoWithLink": "Gerne {{wouldWho}} mit Ihnen über folgendes Projekt austauschen:",
+            "getInContactWithoutPlatformInfoWithoutLink": "Gerne {{wouldWho}} mit Ihnen über das Projekt austauschen.",
+            "getInContactWithoutPlatformInfoWithLink": "Gerne {{wouldWho}} mit Ihnen über folgendes Projekt austauschen:",
             "getInContactWithPlatformInfo": "Gerne {{wouldWho}} mit Ihnen über folgendes Projekt auf {{projectInfo}} austauschen:",
             "hourlyRateInfo": "Mein Stundensatz beträgt {{hourlyRate}}€.",
             "messageTitle": "Nachricht",
