@@ -5,6 +5,7 @@ import { useTranslation } from "../../../../hooks/useTranslation/useTranslation"
 import { ConfigureComponent } from "../../components/configureComponent/ConfigureComponent";
 import { IApplicationTextConfigProps } from "./IApplicationTextConfigProps";
 import styles from "./ApplicationText.module.scss";
+import { ApplicationTextEntry } from "./applicationTextEntry/ApplicationTextEntry";
 
 export const ApplicationTextConfig: React.FC<IApplicationTextConfigProps> = (
   props
@@ -25,7 +26,13 @@ export const ApplicationTextConfig: React.FC<IApplicationTextConfigProps> = (
     <ConfigureComponent
       title={t(texts.applyMessageGenerator.applicationText.title)}
     >
-      <MultiSelectButtons
+      {buttonLabels.map((buttonLabel, index) => (
+        <ApplicationTextEntry
+          text={getTextByIndex(index)}
+          title={buttonLabel}
+        />
+      ))}
+      {/* <MultiSelectButtons
         buttonLabels={buttonLabels}
         // isSingleSelect
         onClick={(index) => {
@@ -33,7 +40,7 @@ export const ApplicationTextConfig: React.FC<IApplicationTextConfigProps> = (
           props.onChange([getTextByIndex(index), getTextByIndex(1)]);
         }}
       />
-      <p className={styles.text}>{getTextByIndex(selectedButtonIndex)}</p>
+      <p className={styles.text}>{getTextByIndex(selectedButtonIndex)}</p> */}
     </ConfigureComponent>
   );
 };

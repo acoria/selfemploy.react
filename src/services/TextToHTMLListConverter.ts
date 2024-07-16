@@ -1,6 +1,5 @@
 class TextToHTMLListConverterDefault {
   convert(text: string): string {
-    // text = "a1. hello \nz";
     return this.replaceEntireList(text);
   }
 
