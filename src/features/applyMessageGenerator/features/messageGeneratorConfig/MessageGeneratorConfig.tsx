@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { IApplyMessageConfig } from "../../../../core/types/IApplyMessageConfig";
 import { useSettings } from "../../hooks/useSettings";
 import { HourlyRateConfig } from "../HourlyRateConfig/HourlyRateConfig";
@@ -70,12 +70,12 @@ export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
       />
       <ApplicationTextConfig
         applicationTexts={settings.applicationTexts}
-        onChange={(applicationText) =>
+        onChange={useCallback((applicationTexts: string[]) => {
           setApplyMessageConfig((applyMessage) => ({
             ...applyMessage,
-            applicationTexts: applicationText,
-          }))
-        }
+            applicationTexts: applicationTexts,
+          }));
+        }, [])}
       />
       <ApplicationMediumConfig
         initialValue={applyMessageConfig.applicationMedium}
