@@ -16,6 +16,9 @@ export const ApplicationTexts: React.FC = () => {
   const [newApplicationTextTitle, setNewApplicationTextTitle] =
     useState<string>("");
 
+  const isInputInvalid =
+    newApplicationText === "" || newApplicationTextTitle === "";
+
   const removeApplicationText = (applicationText: IApplicationText) => {
     setSettings((previous) => {
       const index = previous.applicationTexts.findIndex(
@@ -95,7 +98,9 @@ export const ApplicationTexts: React.FC = () => {
             ></div>
           </div>
         )}
-        <button onClick={() => addApplicationText()}>Add</button>
+        <button onClick={() => addApplicationText()} disabled={isInputInvalid}>
+          Add
+        </button>
       </div>
       <h4 className={styles.applicationTextLabel}>
         {t(texts.applyMessageGenerator.applicationTexts.applicationTextsLabel)}
