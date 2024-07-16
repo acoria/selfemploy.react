@@ -10,7 +10,7 @@ export interface IApplyMessageConfig {
   applicantNumber: ApplicantNumber;
   applicationMedium: ApplicationMedium;
   applicationOrigin: IApplicationOrigin | undefined;
-  applicationText: string;
+  applicationTexts: string[];
   availableFrom: string | undefined;
   hourlyRate: string | undefined;
   farewell: IFarewell;

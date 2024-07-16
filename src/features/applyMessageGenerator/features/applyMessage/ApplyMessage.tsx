@@ -15,6 +15,17 @@ import { TextToHTMLConverter } from "../../../../services/TextToHTMLConverter";
 export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
   const { t } = useTranslation();
 
+  const getApplicationMessages = (): string => {
+    let applicationTexts = "";
+    props.applyMessageConfig?.applicationTexts.forEach(
+      (text) =>
+        (applicationTexts = `<p>${applicationTexts}${TextToHTMLConverter.convert(
+          text
+        )}</p>`)
+    );
+    return applicationTexts;
+  };
+
   const getProjectLink = (): JSX.Element => {
     if (props.applyMessageConfig?.applicationOrigin === undefined) return <></>;
     switch (props.applyMessageConfig?.applicationOrigin.applicationOrigin) {
@@ -187,16 +198,11 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
     <>
       <div id="messageContent">
         <p>{props.applyMessageConfig?.salutation}</p>
-        <p
+        <div
           dangerouslySetInnerHTML={{
-            __html: `${
-              props.applyMessageConfig?.applicationText &&
-              TextToHTMLConverter.convert(
-                props.applyMessageConfig?.applicationText
-              )
-            }`,
+            __html: getApplicationMessages(),
           }}
-        ></p>
+        ></div>
         {getSecondProfileLink()}
         <div>{getGetInContactMessage()}</div>
         {props.applyMessageConfig?.applicationMedium ===

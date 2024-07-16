@@ -27,10 +27,10 @@ export const ApplicationTextConfig: React.FC<IApplicationTextConfigProps> = (
     >
       <MultiSelectButtons
         buttonLabels={buttonLabels}
-        isSingleSelect
+        // isSingleSelect
         onClick={(index) => {
           setSelectedButtonIndex(index);
-          props.onChange(getTextByIndex(index));
+          props.onChange([getTextByIndex(index), getTextByIndex(1)]);
         }}
       />
       <p className={styles.text}>{getTextByIndex(selectedButtonIndex)}</p>

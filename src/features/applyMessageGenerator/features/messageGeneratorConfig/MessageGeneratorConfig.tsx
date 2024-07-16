@@ -27,7 +27,7 @@ export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
       applicantNumber: ApplicantNumber.SINGLE,
       applicationMedium: ApplicationMedium.WEBSITE,
       applicationOrigin: undefined,
-      applicationText: "",
+      applicationTexts: [],
       availableFrom: undefined,
       hourlyRate: undefined,
       farewell: {
@@ -73,7 +73,7 @@ export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
         onChange={(applicationText) =>
           setApplyMessageConfig((applyMessage) => ({
             ...applyMessage,
-            applicationText,
+            applicationTexts: applicationText,
           }))
         }
       />
