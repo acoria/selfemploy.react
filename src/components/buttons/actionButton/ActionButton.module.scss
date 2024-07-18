@@ -1,8 +1,6 @@
-@import '../../styles/core/colors.module.scss';
+@import '../../../styles/core/colors.module.scss';
 
 .actionButton {
-    margin-top: 1rem;
-    padding: 0.25rem 0.5rem;
     background-color: $accent;
     color: $white;
 

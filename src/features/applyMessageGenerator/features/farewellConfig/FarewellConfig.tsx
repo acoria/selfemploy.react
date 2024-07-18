@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { InputField } from "../../../../components/inputField/InputField";
-import { EnumMultiSelectButtons } from "../../../../components/multiSelectButtons/enumMultiSelectButtons/EnumMultiSelectButtons";
+import { EnumMultiSelectButtons } from "../../../../components/buttons/multiSelectButtons/enumMultiSelectButtons/EnumMultiSelectButtons";
 import { texts } from "../../../../hooks/useTranslation/texts";
 import { useTranslation } from "../../../../hooks/useTranslation/useTranslation";
 import { ConfigureComponent } from "../../components/configureComponent/ConfigureComponent";

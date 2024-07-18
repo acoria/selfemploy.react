@@ -1,4 +1,4 @@
-import { ActionButton } from "../../../../components/actionButton/ActionButton";
+import { ActionButton } from "../../../../components/buttons/actionButton/ActionButton";
 import { texts } from "../../../../hooks/useTranslation/texts";
 import { useTranslation } from "../../../../hooks/useTranslation/useTranslation";
 import { ApplicationOrigin } from "../applicationOriginConfig/types/ApplicationOrigin";

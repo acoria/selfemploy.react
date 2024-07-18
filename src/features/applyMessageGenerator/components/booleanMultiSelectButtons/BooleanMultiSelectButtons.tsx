@@ -1,4 +1,4 @@
-import { MultiSelectButtons } from "../../../../components/multiSelectButtons/MultiSelectButtons";
+import { MultiSelectButtons } from "../../../../components/buttons/multiSelectButtons/MultiSelectButtons";
 import { texts } from "../../../../hooks/useTranslation/texts";
 import { useTranslation } from "../../../../hooks/useTranslation/useTranslation";
 import { IBooleanMultiSelectButtonsProps } from "./IBooleanMultiSelectButtonsProps";

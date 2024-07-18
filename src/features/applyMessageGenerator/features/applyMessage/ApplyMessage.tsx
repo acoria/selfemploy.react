@@ -9,8 +9,9 @@ import { ApplicationOrigin } from "../applicationOriginConfig/types/ApplicationO
 import { Farewell } from "../farewellConfig/Farewell";
 import { IApplyMessageProps } from "./IApplyMessageProps";
 import { copyHTMLToClipboard } from "../../../../services/copyHTMLToClipboard";
-import { ActionButton } from "../../../../components/actionButton/ActionButton";
+import { ActionButton } from "../../../../components/buttons/actionButton/ActionButton";
 import { TextToHTMLConverter } from "../../../../services/TextToHTMLConverter";
+import styles from "./ApplyMessage.module.scss";
 
 export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
   const { t } = useTranslation();
@@ -216,6 +217,7 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
       <ActionButton
         onClick={copyToClipboard}
         caption={t(texts.general.copyToClipboard)}
+        className={styles.actionButton}
       />
     </>
   );

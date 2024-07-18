@@ -8,6 +8,8 @@ import { IApplicationText } from "../types/IApplicationText";
 import styles from "./ApplicationTexts.module.scss";
 import { ApplicationText } from "./applicationText/ApplicationText";
 import { TextToHTMLConverter } from "../../../services/TextToHTMLConverter";
+import { IconButton } from "../../../components/buttons/iconButton/IconButton";
+import { IconType } from "../../../components/buttons/iconButton/IconType";
 
 export const ApplicationTexts: React.FC = () => {
   const { t } = useTranslation();
@@ -52,13 +54,12 @@ export const ApplicationTexts: React.FC = () => {
       <div key={`${applicationText.type}_${index}`}>
         <div className={styles.applicationTextEntry}>
           <ApplicationText applicationText={applicationText} />
-          <button
+          <IconButton
+            iconType={IconType.DELETE}
             onClick={() => {
               removeApplicationText(applicationText);
             }}
-          >
-            Remove
-          </button>
+          />
         </div>
         {index < settings.applicationTexts.length - 1 && <Divider />}
       </div>
@@ -89,6 +90,11 @@ export const ApplicationTexts: React.FC = () => {
           rows={10}
           value={newApplicationText}
         />
+        <IconButton
+          iconType={IconType.ADD}
+          onClick={addApplicationText}
+          disabled={isInputInvalid}
+        />
         {newApplicationText && (
           <div className={styles.wysiwyg}>
             <div
@@ -98,9 +104,6 @@ export const ApplicationTexts: React.FC = () => {
             ></div>
           </div>
         )}
-        <button onClick={() => addApplicationText()} disabled={isInputInvalid}>
-          Add
-        </button>
       </div>
       <h4 className={styles.applicationTextLabel}>
         {t(texts.applyMessageGenerator.applicationTexts.applicationTextsLabel)}

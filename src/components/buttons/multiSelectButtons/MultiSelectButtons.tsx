@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { style } from "../../utils/style";
+import { style } from "../../../utils/style";
 import { IMultiSelectButtonsProps } from "./IMultiSelectButtonsProps";
 import styles from "./MultiSelectButtons.module.scss";
 
