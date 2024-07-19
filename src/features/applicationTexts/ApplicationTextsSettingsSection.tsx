@@ -1,25 +1,17 @@
-import { useState } from "react";
-import { Divider } from "../../components/divider/Divider";
-import { InputField } from "../../components/inputField/InputField";
-import { texts } from "../../hooks/useTranslation/texts";
-import { useTranslation } from "../../hooks/useTranslation/useTranslation";
-import { useSettings } from "../../hooks/useSettings";
-import styles from "./ApplicationTexts.module.scss";
-import { ApplicationText } from "./applicationText/ApplicationText";
-import { TextToHTMLConverter } from "../../services/TextToHTMLConverter";
 import { IconButton } from "../../components/buttons/iconButton/IconButton";
 import { IconType } from "../../components/buttons/iconButton/IconType";
+import { Divider } from "../../components/divider/Divider";
+import { useSettings } from "../../hooks/useSettings";
+import { texts } from "../../hooks/useTranslation/texts";
+import { useTranslation } from "../../hooks/useTranslation/useTranslation";
 import { IApplicationText } from "../../types/IApplicationText";
+import styles from "./ApplicationTexts.module.scss";
+import { AddApplicationText } from "./addApplicationText/AddApplicationText";
+import { ApplicationText } from "./applicationText/ApplicationText";
 
 export const ApplicationTextsSettingsSection: React.FC = () => {
   const { t } = useTranslation();
   const [settings, setSettings] = useSettings();
-  const [newApplicationText, setNewApplicationText] = useState<string>("");
-  const [newApplicationTextTitle, setNewApplicationTextTitle] =
-    useState<string>("");
-
-  const isInputInvalid =
-    newApplicationText === "" || newApplicationTextTitle === "";
 
   const removeApplicationText = (applicationText: IApplicationText) => {
     setSettings((previous) => {
@@ -32,21 +24,6 @@ export const ApplicationTextsSettingsSection: React.FC = () => {
         applicationTexts: previous.applicationTexts,
       };
     });
-  };
-
-  const addApplicationText = () => {
-    setSettings((previous) => {
-      previous.applicationTexts.push({
-        text: newApplicationText,
-        type: newApplicationTextTitle,
-      });
-      return {
-        ...previous,
-        applicationTexts: previous.applicationTexts,
-      };
-    });
-    setNewApplicationText("");
-    setNewApplicationTextTitle("");
   };
 
   const applicationTexts = settings.applicationTexts.map(
@@ -68,43 +45,20 @@ export const ApplicationTextsSettingsSection: React.FC = () => {
 
   return (
     <>
-      <div className={styles.addApplicationText}>
-        <InputField
-          label={t(
-            texts.applyMessageGenerator.applicationTexts.toggleButtonTypeLabel
-          )}
-          initialValue={newApplicationTextTitle}
-          onChange={setNewApplicationTextTitle}
-        />
-        <label htmlFor="applicationText">
-          {t(
-            texts.applyMessageGenerator.applicationText.newApplicationTextLabel
-          )}
-        </label>
-        <textarea
-          id="applicationText"
-          onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) =>
-            setNewApplicationText(event.target.value)
-          }
-          cols={80}
-          rows={10}
-          value={newApplicationText}
-        />
-        <IconButton
-          iconType={IconType.ADD}
-          onClick={addApplicationText}
-          disabled={isInputInvalid}
-        />
-        {newApplicationText && (
-          <div className={styles.wysiwyg}>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: TextToHTMLConverter.convert(newApplicationText),
-              }}
-            ></div>
-          </div>
-        )}
-      </div>
+      <AddApplicationText
+        onNewApplicationText={(newApplicationText, newApplicationTextTitle) => {
+          setSettings((previous) => {
+            previous.applicationTexts.push({
+              text: newApplicationText,
+              type: newApplicationTextTitle,
+            });
+            return {
+              ...previous,
+              applicationTexts: previous.applicationTexts,
+            };
+          });
+        }}
+      />
       <h4 className={styles.applicationTextLabel}>
         {t(texts.applyMessageGenerator.applicationTexts.applicationTextsLabel)}
       </h4>
