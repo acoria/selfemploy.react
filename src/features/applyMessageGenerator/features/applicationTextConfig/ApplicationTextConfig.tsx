@@ -45,6 +45,7 @@ export const ApplicationTextConfig: React.FC<IApplicationTextConfigProps> = (
     >
       {props.applicationTexts.map((applicationText, index) => (
         <ApplicationTextEntry
+          key={`${applicationText.type}_${index}`}
           text={applicationText.text}
           title={applicationText.type}
           onSelect={(selected) => {

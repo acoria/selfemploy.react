@@ -12,6 +12,7 @@ import { copyHTMLToClipboard } from "../../../../services/copyHTMLToClipboard";
 import { ActionButton } from "../../../../components/buttons/actionButton/ActionButton";
 import { TextToHTMLConverter } from "../../../../services/TextToHTMLConverter";
 import styles from "./ApplyMessage.module.scss";
+import { IconType } from "../../../../components/buttons/iconButton/IconType";
 
 export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
   const { t } = useTranslation();
@@ -214,11 +215,9 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
         <div>{getFarewell()}</div>
         <div>{props.applyMessageConfig?.farewell.name ?? ""}</div>
       </div>
-      <ActionButton
-        onClick={copyToClipboard}
-        caption={t(texts.general.copyToClipboard)}
-        className={styles.actionButton}
-      />
+      <div className={styles.actionButton}>
+        <ActionButton iconType={IconType.COPY} onClick={copyToClipboard} />
+      </div>
     </>
   );
 };

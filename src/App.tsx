@@ -5,7 +5,7 @@ import { useSettingsStorage } from "./features/applyMessageGenerator/hooks/useSe
 function App() {
   return (
     <AppContext.Provider value={{ settings: useSettingsStorage() }}>
-      <ApplyMessageGeneratorComponent />;
+      <ApplyMessageGeneratorComponent />
     </AppContext.Provider>
   );
 }

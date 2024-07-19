@@ -1,4 +1,5 @@
 import { ActionButton } from "../../../../components/buttons/actionButton/ActionButton";
+import { IconType } from "../../../../components/buttons/iconButton/IconType";
 import { texts } from "../../../../hooks/useTranslation/texts";
 import { useTranslation } from "../../../../hooks/useTranslation/useTranslation";
 import { ApplicationOrigin } from "../applicationOriginConfig/types/ApplicationOrigin";
@@ -30,10 +31,7 @@ export const ApplySubject: React.FC<IApplySubjectProps> = (props) => {
   return (
     <>
       <p>{subject()}</p>
-      <ActionButton
-        onClick={copyToClipboard}
-        caption={t(texts.general.copyToClipboard)}
-      />
+      <ActionButton iconType={IconType.COPY} onClick={copyToClipboard} />
     </>
   );
 };
