@@ -22,7 +22,10 @@ export const ApplyMessageGeneratorComponent = () => {
 
   return (
     <>
-      <Header onToggleSettings={() => setShowSettings((prev) => !prev)} />
+      <Header
+        onToggleSettings={() => setShowSettings((prev) => !prev)}
+        settingsShown={showSettings}
+      />
       <div className={styles.content}>
         {showSettings && <Settings />}
         <TitledSection

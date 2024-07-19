@@ -21,6 +21,7 @@ export const Header: React.FC<IHeaderProps> = (props) => {
         <IconButton
           iconType={IconType.SETTINGS}
           onClick={props.onToggleSettings}
+          isSelected={!props.settingsShown}
         />
       </div>
     </div>
