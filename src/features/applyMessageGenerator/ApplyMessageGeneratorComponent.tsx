@@ -4,12 +4,12 @@ import { IApplyMessageConfig } from "../../core/types/IApplyMessageConfig";
 import { texts } from "../../hooks/useTranslation/texts";
 import { useTranslation } from "../../hooks/useTranslation/useTranslation";
 import styles from "./ApplyMessageGeneratorComponent.module.scss";
-import { ApplicationMedium } from "./features/applicationMediumConfig/types/ApplicationMedium";
-import { ApplyMessage } from "./features/applyMessage/ApplyMessage";
-import { ApplySubject } from "./features/applySubject/ApplySubject";
-import { Header } from "./features/header/Header";
-import { MessageGeneratorConfig } from "./features/messageGeneratorConfig/MessageGeneratorConfig";
-import { Settings } from "./features/settings/Settings";
+import { ApplicationMedium } from "../applicationMediumConfig/types/ApplicationMedium";
+import { ApplyMessage } from "../applyMessage/ApplyMessage";
+import { ApplySubject } from "../applySubject/ApplySubject";
+import { Header } from "../header/Header";
+import { MessageGeneratorConfig } from "../messageGeneratorConfig/MessageGeneratorConfig";
+import { Settings } from "../settings/Settings";
 import { TitledSection } from "../../components/titledSection/TitledSection";
 
 export const ApplyMessageGeneratorComponent = () => {
