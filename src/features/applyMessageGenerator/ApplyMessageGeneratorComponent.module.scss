@@ -1,13 +1,7 @@
 @import '../../../src/styles/core/colors.module.scss';
-@import '../../../src/styles/core/global.scss';
 
 .content {
     padding: 1rem;
-}
-
-.title {
-    margin-top: 0;
-    @include sectionTitle();
 }
 
 .generatedMessageSection {

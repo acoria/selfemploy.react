@@ -1,0 +1,6 @@
+@import '../../../src/styles/core/global.scss';
+
+.title {
+    margin-top: 0;
+    @include sectionTitle();
+}

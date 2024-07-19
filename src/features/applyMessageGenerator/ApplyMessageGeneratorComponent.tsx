@@ -10,6 +10,7 @@ import { ApplySubject } from "./features/applySubject/ApplySubject";
 import { Header } from "./features/header/Header";
 import { MessageGeneratorConfig } from "./features/messageGeneratorConfig/MessageGeneratorConfig";
 import { Settings } from "./features/settings/Settings";
+import { TitledSection } from "../../components/titledSection/TitledSection";
 
 export const ApplyMessageGeneratorComponent = () => {
   const { t } = useTranslation();
@@ -24,30 +25,31 @@ export const ApplyMessageGeneratorComponent = () => {
       <Header onToggleSettings={() => setShowSettings((prev) => !prev)} />
       <div className={styles.content}>
         {showSettings && <Settings />}
-        <h3 className={styles.title}>
-          {t(texts.applyMessageGenerator.configSectionTitle)}
-        </h3>
-        <MessageGeneratorConfig
-          onApplyMessageConfigChange={setApplyMessageConfig}
-        />
+        <TitledSection
+          title={t(texts.applyMessageGenerator.configSectionTitle)}
+        >
+          <MessageGeneratorConfig
+            onApplyMessageConfigChange={setApplyMessageConfig}
+          />
+        </TitledSection>
         <Divider />
         <div className={styles.generatedMessageSection}>
-          <div>
-            <h3 className={styles.title}>
-              {t(texts.applyMessageGenerator.messageSection.messageTitle)}
-            </h3>
+          <TitledSection
+            title={t(texts.applyMessageGenerator.messageSection.messageTitle)}
+          >
             <ApplyMessage applyMessageConfig={applyMessageConfig} />
-          </div>
+          </TitledSection>
           {applyMessageConfig?.applicationMedium === ApplicationMedium.EMAIL &&
             applyMessageConfig.applicationOrigin && (
-              <div>
-                <h3 className={styles.title}>
-                  {t(texts.applyMessageGenerator.messageSection.subjectTitle)}
-                </h3>
+              <TitledSection
+                title={t(
+                  texts.applyMessageGenerator.messageSection.subjectTitle
+                )}
+              >
                 <ApplySubject
                   applicationOrigin={applyMessageConfig.applicationOrigin}
                 />
-              </div>
+              </TitledSection>
             )}
         </div>
       </div>
