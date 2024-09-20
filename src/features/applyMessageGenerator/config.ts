@@ -12,6 +12,10 @@ export const settings: ISettings = {
       text: "Wir sind zwei Frontend-Entwickler, die mit Interesse ihre Ausschreibung für mehrere Entwickler zur Kenntnis genommen haben. Wir haben bereits mehrere Jahre in unterschiedlichsten Projekten miteinander gearbeitet. Neben unserer Frontend Expertise besitzen wir beide einen unterschiedlichen Fokus, zum einen im Middleware-Bereich, zum anderen im Bereich Usability.",
     },
   ],
+  myLinkFreelance:
+    "https://www.freelance.de/Freelancer/295309-Senior-Full-Stack-Entwicklerin-UX-Designerin",
+  myLinkFreelancerMap:
+    "https://www.freelancermap.de/profil/software-architect-251646",
   codingBuddyLinkFreelancerMap:
     "https://www.freelancermap.de/profil/software-architekt-251647",
   codingBuddyLinkFreelance:
