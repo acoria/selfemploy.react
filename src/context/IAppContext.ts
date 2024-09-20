@@ -1,4 +1,4 @@
-import { ISettings } from "../features/applyMessageGenerator/types/ISettings";
+import { ISettings } from "../types/ISettings";
 import { Value } from "../types/Value";
 
 export interface IAppContext {

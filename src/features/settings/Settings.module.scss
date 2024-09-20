@@ -1,0 +1,9 @@
+@import '../../styles/core/global.scss';
+
+.title {
+  @include sectionTitle();
+}
+
+.newApplicationTextLabel {
+  font-size: 0.8rem;
+}
