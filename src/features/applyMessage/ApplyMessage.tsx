@@ -190,6 +190,11 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
     }
   };
 
+  const getTelephoneNumber = (): string =>
+    `${t(texts.applyMessageGenerator.messageSection.telephoneNumber)} ${
+      props.applyMessageConfig?.telephoneNumber
+    }.`;
+
   const copyToClipboard = async () => {
     copyHTMLToClipboard(
       document.getElementById("messageContent")?.innerHTML ?? ""
@@ -211,7 +216,9 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
           ApplicationMedium.EMAIL && <div>{getProjectLink()}</div>}
         <div>{getConditions()}</div>
         <br />
-
+        <div>{getTelephoneNumber()}</div>
+        <br />
+        
         <div>{getFarewell()}</div>
         <div>{props.applyMessageConfig?.farewell.name ?? ""}</div>
       </div>

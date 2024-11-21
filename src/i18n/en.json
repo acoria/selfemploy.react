@@ -28,7 +28,8 @@
             "title": "Verabschiedung"
         },
         "general": {
-            "nameInputFieldLabel": "Dein Name"
+            "nameInputFieldLabel": "Dein Name",
+            "telephoneNumber": "Deine Telefonnummer"
         },
         "hourlyRateConfigTitle": "Stundensatz",
         "languageConfigTitle": "Sprache",
@@ -44,6 +45,7 @@
             "messageTitle": "Nachricht",
             "subject": "Bewerbung für {{website}}-Projekt {{projectInfo}}",
             "subjectTitle": "Betreff",
+            "telephoneNumber": "Bei Rückfragen erreichen Sie mich unter folgender Nummer:",
             "wouldI": "würde ich mich",
             "wouldWe": "würden wir uns"
         },

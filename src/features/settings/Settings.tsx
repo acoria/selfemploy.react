@@ -33,6 +33,10 @@ export const Settings: React.FC = () => {
     setSettings((previous) => ({ ...previous, codingBuddyLinkLinkedIn: link }));
   };
 
+  const updateTelephoneNumber = (telephoneNumber: string) => {
+    setSettings((previous) => ({ ...previous, telephoneNumber }));
+  };
+
   return (
     <>
       <h1 className={styles.title}>
@@ -42,6 +46,11 @@ export const Settings: React.FC = () => {
         label={t(texts.applyMessageGenerator.general.nameInputFieldLabel)}
         initialValue={settings.yourName}
         onChange={updateName}
+      />
+      <InputField
+        label={t(texts.applyMessageGenerator.general.telephoneNumber)}
+        initialValue={settings.telephoneNumber}
+        onChange={updateTelephoneNumber}
       />
       <InputField
         widthInRem={inputFieldWidthInRem}

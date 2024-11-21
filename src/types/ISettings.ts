@@ -8,4 +8,5 @@ export interface ISettings {
   codingBuddyLinkFreelancerMap: string;
   codingBuddyLinkFreelance: string;
   codingBuddyLinkLinkedIn: string;
+  telephoneNumber: string;
 }

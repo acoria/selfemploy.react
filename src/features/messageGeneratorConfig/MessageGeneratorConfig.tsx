@@ -22,18 +22,19 @@ export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
   const [settings] = useSettings();
   const [applyMessageConfig, setApplyMessageConfig] =
     useState<IApplyMessageConfig>({
-      salutation: "",
-      language: Language.DE,
       applicantNumber: ApplicantNumber.SINGLE,
       applicationMedium: ApplicationMedium.WEBSITE,
       applicationOrigin: undefined,
       applicationTexts: [],
       availableFrom: undefined,
-      hourlyRate: undefined,
       farewell: {
         farewell: Farewell.POLITE,
         name: settings.yourName,
       },
+      hourlyRate: undefined,
+      language: Language.DE,
+      salutation: "",
+      telephoneNumber: settings.telephoneNumber,
     });
 
   useEffect(() => {

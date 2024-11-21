@@ -22,4 +22,5 @@ export const settings: ISettings = {
     "https://www.freelance.de/Freelancer/297373-Fullstack-Senior-Software-Engineer",
   codingBuddyLinkLinkedIn:
     "https://www.linkedin.com/in/peter-hoffmann-979666243/",
+  telephoneNumber: "+49 176 425 22 430",
 };
