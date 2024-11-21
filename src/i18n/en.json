@@ -34,8 +34,8 @@
         "languageConfigTitle": "Sprache",
         "messageSection": {
             "availabilityInfo": "Ich bin ab {{availableFrom}} verfügbar. ",
-            "bestRegardsInformal": "Viele Grüße",
-            "bestRegardsPolite": "Mit freundlichen Grüßen",
+            "bestRegardsInformal": "Viele Grüße aus Heidelberg",
+            "bestRegardsPolite": "Mit freundlichen Grüßen aus Heidelberg",
             "codingBuddyProfileInfo": "Dies ist das Profil meines Kollegen: {{profileLink}}",
             "getInContactWithoutPlatformInfoWithoutLink": "Gerne {{wouldWho}} mit Ihnen über das Projekt austauschen.",
             "getInContactWithoutPlatformInfoWithLink": "Gerne {{wouldWho}} mit Ihnen über folgendes Projekt austauschen:",
