@@ -37,9 +37,11 @@ export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
       telephoneNumber: settings.telephoneNumber,
     });
 
+  const { onApplyMessageConfigChange } = { ...props };
+
   useEffect(() => {
-    props.onApplyMessageConfigChange(applyMessageConfig);
-  }, [applyMessageConfig]);
+    onApplyMessageConfigChange(applyMessageConfig);
+  }, [applyMessageConfig, onApplyMessageConfigChange]);
 
   return (
     <>
