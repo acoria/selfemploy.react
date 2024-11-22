@@ -1,6 +1,4 @@
 import { ReactNode } from "react";
-import Markdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import { ActionButton } from "../../components/buttons/actionButton/ActionButton";
 import { IconType } from "../../components/buttons/iconButton/IconType";
 import { settings } from "../../config";
@@ -14,15 +12,14 @@ import { ApplicationOrigin } from "../applicationOriginConfig/types/ApplicationO
 import { Farewell } from "../farewellConfig/Farewell";
 import styles from "./ApplyMessage.module.scss";
 import { IApplyMessageProps } from "./IApplyMessageProps";
+import { Markdown } from "../../components/markdown/Markdown";
 
 export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
   const { t } = useTranslation();
 
   const getApplicationMessages = () =>
     props.applyMessageConfig?.applicationTexts.map((text, index) => (
-      <Markdown key={index} remarkPlugins={[remarkGfm]}>
-        {text}
-      </Markdown>
+      <Markdown key={index} markdownText={text} />
     ));
   const getProjectLink = (): JSX.Element => {
     if (props.applyMessageConfig?.applicationOrigin === undefined) return <></>;

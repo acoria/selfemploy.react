@@ -2,7 +2,7 @@ import { Divider } from "../../components/divider/Divider";
 import { InputField } from "../../components/inputField/InputField";
 import { texts } from "../../hooks/useTranslation/texts";
 import { useTranslation } from "../../hooks/useTranslation/useTranslation";
-import { ApplicationTextsSettingsSection } from "../applicationTexts/ApplicationTextsSettingsSection";
+import { ApplicationTextListSettingsSection } from "../applicationText/applicationTextListSettingsSection/ApplicationTextListSettingsSection";
 import { useSettings } from "../../hooks/useSettings";
 import styles from "./Settings.module.scss";
 
@@ -75,7 +75,7 @@ export const Settings: React.FC = () => {
       <h4 className={styles.newApplicationTextLabel}>
         {t(texts.applyMessageGenerator.settings.newApplicationTextLabel)}
       </h4>
-      <ApplicationTextsSettingsSection />
+      <ApplicationTextListSettingsSection />
       <Divider />
     </>
   );

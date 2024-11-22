@@ -1,15 +1,15 @@
-import { IconButton } from "../../components/buttons/iconButton/IconButton";
-import { IconType } from "../../components/buttons/iconButton/IconType";
-import { Divider } from "../../components/divider/Divider";
-import { useSettings } from "../../hooks/useSettings";
-import { texts } from "../../hooks/useTranslation/texts";
-import { useTranslation } from "../../hooks/useTranslation/useTranslation";
-import { IApplicationText } from "../../types/IApplicationText";
-import styles from "./ApplicationTexts.module.scss";
-import { AddApplicationText } from "./addApplicationText/AddApplicationText";
-import { ApplicationText } from "./applicationText/ApplicationText";
+import { IconButton } from "../../../components/buttons/iconButton/IconButton";
+import { IconType } from "../../../components/buttons/iconButton/IconType";
+import { Divider } from "../../../components/divider/Divider";
+import { useSettings } from "../../../hooks/useSettings";
+import { texts } from "../../../hooks/useTranslation/texts";
+import { useTranslation } from "../../../hooks/useTranslation/useTranslation";
+import { IApplicationText } from "../../../types/IApplicationText";
+import styles from "./ApplicationTextListSettingsSection.module.scss";
+import { AddApplicationText } from "../addApplicationText/AddApplicationText";
+import { ApplicationText } from "../applicationText/ApplicationText";
 
-export const ApplicationTextsSettingsSection: React.FC = () => {
+export const ApplicationTextListSettingsSection: React.FC = () => {
   const { t } = useTranslation();
   const [settings, setSettings] = useSettings();
 

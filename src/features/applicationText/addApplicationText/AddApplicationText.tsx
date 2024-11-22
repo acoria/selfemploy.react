@@ -1,6 +1,4 @@
 import { useState } from "react";
-import Markdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import { IconButton } from "../../../components/buttons/iconButton/IconButton";
 import { IconType } from "../../../components/buttons/iconButton/IconType";
 import { InputField } from "../../../components/inputField/InputField";
@@ -8,6 +6,7 @@ import { texts } from "../../../hooks/useTranslation/texts";
 import { useTranslation } from "../../../hooks/useTranslation/useTranslation";
 import styles from "./AddApplicationText.module.scss";
 import { IAddApplicationTextProps } from "./IAddApplicationTextProps";
+import { Markdown } from "../../../components/markdown/Markdown";
 
 export const AddApplicationText: React.FC<IAddApplicationTextProps> = (
   props
@@ -55,7 +54,7 @@ export const AddApplicationText: React.FC<IAddApplicationTextProps> = (
       />
       {newApplicationText && (
         <div className={styles.wysiwyg}>
-          <Markdown remarkPlugins={[remarkGfm]}>{newApplicationText}</Markdown>
+          <Markdown markdownText={newApplicationText} />
         </div>
       )}
     </div>
