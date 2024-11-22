@@ -5,6 +5,8 @@ import { useTranslation } from "../../hooks/useTranslation/useTranslation";
 import { ApplicationTextListSettingsSection } from "../applicationText/applicationTextListSettingsSection/ApplicationTextListSettingsSection";
 import { useSettings } from "../../hooks/useSettings";
 import styles from "./Settings.module.scss";
+import { TitledSection } from "../../components/titledSection/TitledSection";
+import { ConfigureComponent } from "../configureComponent/ConfigureComponent";
 
 export const Settings: React.FC = () => {
   const { t } = useTranslation();
@@ -39,43 +41,50 @@ export const Settings: React.FC = () => {
 
   return (
     <>
-      <h1 className={styles.title}>
-        {t(texts.applyMessageGenerator.settings.title)}
-      </h1>
-      <InputField
-        label={t(texts.applyMessageGenerator.general.nameInputFieldLabel)}
-        initialValue={settings.yourName}
-        onChange={updateName}
-      />
-      <InputField
-        label={t(texts.applyMessageGenerator.general.telephoneNumber)}
-        initialValue={settings.telephoneNumber}
-        onChange={updateTelephoneNumber}
-      />
-      <InputField
-        widthInRem={inputFieldWidthInRem}
-        label={t(
-          texts.applyMessageGenerator.settings.codingBuddyLinkFreelancerMap
-        )}
-        initialValue={settings.codingBuddyLinkFreelancerMap}
-        onChange={updateCodingBuddyLinkFreelancerMap}
-      />
-      <InputField
-        widthInRem={inputFieldWidthInRem}
-        label={t(texts.applyMessageGenerator.settings.codingBuddyLinkFreelance)}
-        initialValue={settings.codingBuddyLinkFreelance}
-        onChange={updateCodingBuddyLinkFreelance}
-      />
-      <InputField
-        widthInRem={inputFieldWidthInRem}
-        label={t(texts.applyMessageGenerator.settings.codingBuddyLinkLinkedIn)}
-        initialValue={settings.codingBuddyLinkLinkedIn}
-        onChange={updateCodingBuddyLinkLinkedIn}
-      />
-      <h4 className={styles.newApplicationTextLabel}>
-        {t(texts.applyMessageGenerator.settings.newApplicationTextLabel)}
-      </h4>
-      <ApplicationTextListSettingsSection />
+      <TitledSection title={t(texts.applyMessageGenerator.settings.title)}>
+        <ConfigureComponent
+          title={t(texts.applyMessageGenerator.settings.general)}
+        >
+          <div className={styles.generalSettings}>
+            <InputField
+              label={t(texts.applyMessageGenerator.general.nameInputFieldLabel)}
+              initialValue={settings.yourName}
+              onChange={updateName}
+            />
+            <InputField
+              label={t(texts.applyMessageGenerator.general.telephoneNumber)}
+              initialValue={settings.telephoneNumber}
+              onChange={updateTelephoneNumber}
+            />
+            <InputField
+              widthInRem={inputFieldWidthInRem}
+              label={t(
+                texts.applyMessageGenerator.settings
+                  .codingBuddyLinkFreelancerMap
+              )}
+              initialValue={settings.codingBuddyLinkFreelancerMap}
+              onChange={updateCodingBuddyLinkFreelancerMap}
+            />
+            <InputField
+              widthInRem={inputFieldWidthInRem}
+              label={t(
+                texts.applyMessageGenerator.settings.codingBuddyLinkFreelance
+              )}
+              initialValue={settings.codingBuddyLinkFreelance}
+              onChange={updateCodingBuddyLinkFreelance}
+            />
+            <InputField
+              widthInRem={inputFieldWidthInRem}
+              label={t(
+                texts.applyMessageGenerator.settings.codingBuddyLinkLinkedIn
+              )}
+              initialValue={settings.codingBuddyLinkLinkedIn}
+              onChange={updateCodingBuddyLinkLinkedIn}
+            />
+          </div>
+        </ConfigureComponent>
+        <ApplicationTextListSettingsSection />
+      </TitledSection>
       <Divider />
     </>
   );

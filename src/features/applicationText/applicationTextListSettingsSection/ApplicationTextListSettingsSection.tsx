@@ -8,6 +8,7 @@ import { IApplicationText } from "../../../types/IApplicationText";
 import styles from "./ApplicationTextListSettingsSection.module.scss";
 import { AddApplicationText } from "../addApplicationText/AddApplicationText";
 import { ApplicationText } from "../applicationText/ApplicationText";
+import { ConfigureComponent } from "../../configureComponent/ConfigureComponent";
 
 export const ApplicationTextListSettingsSection: React.FC = () => {
   const { t } = useTranslation();
@@ -52,25 +53,35 @@ export const ApplicationTextListSettingsSection: React.FC = () => {
   );
 
   return (
-    <>
-      <AddApplicationText
-        onNewApplicationText={(newApplicationText, newApplicationTextTitle) => {
-          setSettings((previous) => {
-            previous.applicationTexts.push({
-              text: newApplicationText,
-              type: newApplicationTextTitle,
+    <div className={styles.applicationTextListSettingsSection}>
+      <ConfigureComponent
+        title={t(texts.applyMessageGenerator.settings.newApplicationTextLabel)}
+      >
+        <AddApplicationText
+          onNewApplicationText={(
+            newApplicationText,
+            newApplicationTextTitle
+          ) => {
+            setSettings((previous) => {
+              previous.applicationTexts.push({
+                text: newApplicationText,
+                type: newApplicationTextTitle,
+              });
+              return {
+                ...previous,
+                applicationTexts: previous.applicationTexts,
+              };
             });
-            return {
-              ...previous,
-              applicationTexts: previous.applicationTexts,
-            };
-          });
-        }}
-      />
-      <h4 className={styles.applicationTextLabel}>
-        {t(texts.applyMessageGenerator.applicationTexts.applicationTextsLabel)}
-      </h4>
-      <div>{applicationTexts}</div>
-    </>
+          }}
+        />
+      </ConfigureComponent>
+      <ConfigureComponent
+        title={t(
+          texts.applyMessageGenerator.applicationTexts.applicationTextsLabel
+        )}
+      >
+        {applicationTexts}
+      </ConfigureComponent>
+    </div>
   );
 };
