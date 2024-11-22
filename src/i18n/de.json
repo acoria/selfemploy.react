@@ -66,6 +66,5 @@
             "newApplicationTextLabel": "Neuer Bewerbungstext",
             "title": "Einstellungen"
         }
-    },
-    "demo": "Demo {{test}} {{test}} {{test}}"
+    }
 }

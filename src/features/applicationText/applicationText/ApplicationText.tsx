@@ -7,11 +7,12 @@ export const ApplicationText: React.FC<IApplicationTextProps> = (props) => {
   return (
     <div className={styles.applicationText}>
       <p>{props.applicationText.type}</p>
-      <div
+      {/* <div
         dangerouslySetInnerHTML={{
           __html: TextToHTMLConverter.convert(props.applicationText.text),
         }}
-      ></div>
+      ></div> */}
+      {props.applicationText.text}
     </div>
   );
 };

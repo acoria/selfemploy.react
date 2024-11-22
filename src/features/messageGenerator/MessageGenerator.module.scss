@@ -5,11 +5,7 @@
 }
 
 .generatedMessageSection {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
     column-gap: 2rem;
-}
-
-.applyMessage {
-    flex-grow: 1;
 }

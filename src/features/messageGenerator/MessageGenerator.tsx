@@ -38,7 +38,6 @@ export const MessageGenerator = () => {
         <Divider />
         <div className={styles.generatedMessageSection}>
           <TitledSection
-            className={styles.applyMessage}
             title={t(texts.applyMessageGenerator.messageSection.messageTitle)}
           >
             <ApplyMessage applyMessageConfig={applyMessageConfig} />

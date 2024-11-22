@@ -5,7 +5,7 @@ import { settings } from "../../config";
 import { NotImplementedError } from "../../core/errors/NotImplementedError";
 import { texts } from "../../hooks/useTranslation/texts";
 import { useTranslation } from "../../hooks/useTranslation/useTranslation";
-import { copyHTMLToClipboard } from "../../services/copyHTMLToClipboard";
+import { copyHTMLToClipboard } from "../../utils/copyHTMLToClipboard";
 import { NumberOfApplicants } from "../numberOfApplicantsConfig/types/NumberOfApplicants";
 import { ApplicationMedium } from "../applicationMediumConfig/types/ApplicationMedium";
 import { ApplicationOrigin } from "../applicationOriginConfig/types/ApplicationOrigin";
