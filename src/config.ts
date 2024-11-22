@@ -9,7 +9,11 @@ export const settings: ISettings = {
     },
     {
       type: "für zwei",
-      text: "Wir sind zwei Frontend-Entwickler, die mit Interesse ihre Ausschreibung für mehrere Entwickler zur Kenntnis genommen haben. Wir haben bereits mehrere Jahre in unterschiedlichsten Projekten miteinander gearbeitet. Neben unserer Frontend Expertise besitzen wir beide einen unterschiedlichen Fokus, zum einen im Middleware-Bereich, zum anderen im Bereich Usability.",
+      text: "wir sind zwei Frontend-Entwickler, die mit Interesse Ihre Ausschreibung für mehrere Entwickler zur Kenntnis genommen haben, welche überraschend gut zu unseren bisherigen Erfahrungen passt. Wir haben bereits mehrere Jahre in unterschiedlichsten Projekten miteinander gearbeitet. Neben unserer Frontend Expertise besitzen wir beide einen unterschiedlichen Fokus, zum einen im Middleware-Bereich, zum anderen im Bereich Usability.",
+    },
+    {
+      type: "allgemein",
+      text: "mit Interesse habe ich ihre Ausschreibung für Ihr Projekt gelesen, welches überraschend gut zu meinen bisherigen Erfahrungen passt. Als erfahrene Entwicklerin und UX-Designerin bringe ich die notwendigen Kenntnisse und Fähigkeiten mit, um Ihr Projekt zu realisieren. Meine Fähigkeiten umfassen unter anderem:"
     },
   ],
   myLinkFreelance:
