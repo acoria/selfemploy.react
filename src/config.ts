@@ -15,6 +15,9 @@ export const settings: ISettings = {
       type: "allgemein",
       text: "mit Interesse habe ich ihre Ausschreibung für Ihr Projekt gelesen, welches überraschend gut zu meinen bisherigen Erfahrungen passt. Als erfahrene Entwicklerin und UX-Designerin bringe ich die notwendigen Kenntnisse und Fähigkeiten mit, um Ihr Projekt zu realisieren. Meine Fähigkeiten umfassen unter anderem:"
     },
+    {type: "test",
+      text: "#### Test"
+    }
   ],
   myLinkFreelance:
     "https://www.freelance.de/Freelancer/295309-Senior-Full-Stack-Entwicklerin-UX-Designerin",

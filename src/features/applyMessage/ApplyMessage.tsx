@@ -1,33 +1,27 @@
 import { ReactNode } from "react";
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import { ActionButton } from "../../components/buttons/actionButton/ActionButton";
+import { IconType } from "../../components/buttons/iconButton/IconType";
+import { settings } from "../../config";
 import { NotImplementedError } from "../../core/errors/NotImplementedError";
 import { texts } from "../../hooks/useTranslation/texts";
 import { useTranslation } from "../../hooks/useTranslation/useTranslation";
-import { settings } from "../../config";
+import { copyHTMLToClipboard } from "../../services/copyHTMLToClipboard";
 import { ApplicantNumber } from "../applicantNumberConfig/ApplicantNumber";
 import { ApplicationMedium } from "../applicationMediumConfig/types/ApplicationMedium";
 import { ApplicationOrigin } from "../applicationOriginConfig/types/ApplicationOrigin";
 import { Farewell } from "../farewellConfig/Farewell";
-import { IApplyMessageProps } from "./IApplyMessageProps";
-import { copyHTMLToClipboard } from "../../services/copyHTMLToClipboard";
-import { ActionButton } from "../../components/buttons/actionButton/ActionButton";
-import { TextToHTMLConverter } from "../../services/TextToHTMLConverter";
 import styles from "./ApplyMessage.module.scss";
-import { IconType } from "../../components/buttons/iconButton/IconType";
+import { IApplyMessageProps } from "./IApplyMessageProps";
 
 export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
   const { t } = useTranslation();
 
-  const getApplicationMessages = (): string => {
-    let applicationTexts = "";
-    props.applyMessageConfig?.applicationTexts.forEach(
-      (text) =>
-        (applicationTexts = `<p>${applicationTexts}${TextToHTMLConverter.convert(
-          text
-        )}</p>`)
-    );
-    return applicationTexts;
-  };
-
+  const getApplicationMessages = () =>
+    props.applyMessageConfig?.applicationTexts.map((text) => (
+      <Markdown remarkPlugins={[remarkGfm]}>{text}</Markdown>
+    ));
   const getProjectLink = (): JSX.Element => {
     if (props.applyMessageConfig?.applicationOrigin === undefined) return <></>;
     switch (props.applyMessageConfig?.applicationOrigin.applicationOrigin) {
@@ -205,11 +199,7 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
     <>
       <div id="messageContent">
         <p>{props.applyMessageConfig?.salutation}</p>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: getApplicationMessages(),
-          }}
-        ></div>
+        {getApplicationMessages()}
         {getSecondProfileLink()}
         <div>{getGetInContactMessage()}</div>
         {props.applyMessageConfig?.applicationMedium ===
@@ -218,7 +208,7 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
         <br />
         <div>{getTelephoneNumber()}</div>
         <br />
-        
+
         <div>{getFarewell()}</div>
         <div>{props.applyMessageConfig?.farewell.name ?? ""}</div>
       </div>
