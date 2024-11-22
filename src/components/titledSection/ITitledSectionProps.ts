@@ -1,6 +1,7 @@
 import { ReactElement } from "react";
 
-export interface ITitledSectionProps {
+export interface ITitledSectionProps{
   title: string;
   children: ReactElement | ReactElement[];
+  className?: string;
 }
