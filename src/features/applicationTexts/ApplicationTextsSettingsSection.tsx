@@ -31,12 +31,20 @@ export const ApplicationTextsSettingsSection: React.FC = () => {
       <div key={`${applicationText.type}_${index}`}>
         <div className={styles.applicationTextEntry}>
           <ApplicationText applicationText={applicationText} />
-          <IconButton
-            iconType={IconType.DELETE}
-            onClick={() => {
-              removeApplicationText(applicationText);
-            }}
-          />
+          <div className={styles.buttons}>
+            <IconButton
+              iconType={IconType.COPY}
+              onClick={async () => {
+                navigator.clipboard.writeText(applicationText.text);
+              }}
+            />
+            <IconButton
+              iconType={IconType.DELETE}
+              onClick={() => {
+                removeApplicationText(applicationText);
+              }}
+            />
+          </div>
         </div>
         {index < settings.applicationTexts.length - 1 && <Divider />}
       </div>

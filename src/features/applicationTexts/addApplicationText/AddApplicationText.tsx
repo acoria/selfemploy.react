@@ -1,12 +1,13 @@
-import { IAddApplicationTextProps } from "./IAddApplicationTextProps";
-import styles from "./AddApplicationText.module.scss";
-import { InputField } from "../../../components/inputField/InputField";
 import { useState } from "react";
-import { useTranslation } from "../../../hooks/useTranslation/useTranslation";
-import { texts } from "../../../hooks/useTranslation/texts";
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { IconButton } from "../../../components/buttons/iconButton/IconButton";
 import { IconType } from "../../../components/buttons/iconButton/IconType";
-import { TextToHTMLConverter } from "../../../services/TextToHTMLConverter";
+import { InputField } from "../../../components/inputField/InputField";
+import { texts } from "../../../hooks/useTranslation/texts";
+import { useTranslation } from "../../../hooks/useTranslation/useTranslation";
+import styles from "./AddApplicationText.module.scss";
+import { IAddApplicationTextProps } from "./IAddApplicationTextProps";
 
 export const AddApplicationText: React.FC<IAddApplicationTextProps> = (
   props
@@ -54,11 +55,7 @@ export const AddApplicationText: React.FC<IAddApplicationTextProps> = (
       />
       {newApplicationText && (
         <div className={styles.wysiwyg}>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: TextToHTMLConverter.convert(newApplicationText),
-            }}
-          ></div>
+          <Markdown remarkPlugins={[remarkGfm]}>{newApplicationText}</Markdown>
         </div>
       )}
     </div>

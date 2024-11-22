@@ -13,11 +13,8 @@ export const settings: ISettings = {
     },
     {
       type: "allgemein",
-      text: "mit Interesse habe ich ihre Ausschreibung für Ihr Projekt gelesen, welches überraschend gut zu meinen bisherigen Erfahrungen passt. Als erfahrene Entwicklerin und UX-Designerin bringe ich die notwendigen Kenntnisse und Fähigkeiten mit, um Ihr Projekt zu realisieren. Meine Fähigkeiten umfassen unter anderem:"
+      text: "mit Interesse habe ich ihre Ausschreibung für Ihr Projekt gelesen, welches überraschend gut zu meinen bisherigen Erfahrungen passt. Als erfahrene Entwicklerin und UX-Designerin bringe ich die notwendigen Kenntnisse und Fähigkeiten mit, um Ihr Projekt zu realisieren. Meine Fähigkeiten umfassen unter anderem: - Solide Kenntnisse in der Frontend-Entwicklung mit HTML, CSS, JavaScript, TypeScript und React - Erfahrung in der Backend-Entwicklung mit Springboot in Java & Kotlin, wobei ich Frontend - Sehr erfahren in Usability und User Experience, um für Anforderungen und Probleme das beste Feature zu ermitteln - Eigenständige, qualitativ hochwertige und getestete Implementierungen",
     },
-    {type: "test",
-      text: "#### Test"
-    }
   ],
   myLinkFreelance:
     "https://www.freelance.de/Freelancer/295309-Senior-Full-Stack-Entwicklerin-UX-Designerin",

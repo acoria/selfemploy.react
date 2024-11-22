@@ -19,8 +19,10 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
   const { t } = useTranslation();
 
   const getApplicationMessages = () =>
-    props.applyMessageConfig?.applicationTexts.map((text) => (
-      <Markdown remarkPlugins={[remarkGfm]}>{text}</Markdown>
+    props.applyMessageConfig?.applicationTexts.map((text, index) => (
+      <Markdown key={index} remarkPlugins={[remarkGfm]}>
+        {text}
+      </Markdown>
     ));
   const getProjectLink = (): JSX.Element => {
     if (props.applyMessageConfig?.applicationOrigin === undefined) return <></>;
