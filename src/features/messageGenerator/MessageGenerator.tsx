@@ -3,16 +3,16 @@ import { Divider } from "../../components/divider/Divider";
 import { IApplyMessageConfig } from "../../core/types/IApplyMessageConfig";
 import { texts } from "../../hooks/useTranslation/texts";
 import { useTranslation } from "../../hooks/useTranslation/useTranslation";
-import styles from "./ApplyMessageGeneratorComponent.module.scss";
+import styles from "./MessageGenerator.module.scss";
 import { ApplicationMedium } from "../applicationMediumConfig/types/ApplicationMedium";
 import { ApplyMessage } from "../applyMessage/ApplyMessage";
-import { ApplySubject } from "../applySubject/ApplySubject";
+import { MailSubject } from "../mailSubject/MailSubject";
 import { Header } from "../header/Header";
 import { MessageGeneratorConfig } from "../messageGeneratorConfig/MessageGeneratorConfig";
 import { Settings } from "../settings/Settings";
 import { TitledSection } from "../../components/titledSection/TitledSection";
 
-export const ApplyMessageGeneratorComponent = () => {
+export const MessageGenerator = () => {
   const { t } = useTranslation();
   const [applyMessageConfig, setApplyMessageConfig] = useState<
     IApplyMessageConfig | undefined
@@ -49,7 +49,7 @@ export const ApplyMessageGeneratorComponent = () => {
                   texts.applyMessageGenerator.messageSection.subjectTitle
                 )}
               >
-                <ApplySubject
+                <MailSubject
                   applicationOrigin={applyMessageConfig.applicationOrigin}
                 />
               </TitledSection>

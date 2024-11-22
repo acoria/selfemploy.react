@@ -1,4 +1,4 @@
-export enum ApplicantNumber {
+export enum NumberOfApplicants {
   "SINGLE" = "einzeln",
   "DOUBLE" = "doppelt",
 }

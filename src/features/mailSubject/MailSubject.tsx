@@ -3,9 +3,9 @@ import { IconType } from "../../components/buttons/iconButton/IconType";
 import { texts } from "../../hooks/useTranslation/texts";
 import { useTranslation } from "../../hooks/useTranslation/useTranslation";
 import { ApplicationOrigin } from "../applicationOriginConfig/types/ApplicationOrigin";
-import { IApplySubjectProps } from "./IApplySubjectProps";
+import { IMailSubjectProps } from "./IMailSubjectProps";
 
-export const ApplySubject: React.FC<IApplySubjectProps> = (props) => {
+export const MailSubject: React.FC<IMailSubjectProps> = (props) => {
   const { t } = useTranslation();
 
   const subject = (): string => {

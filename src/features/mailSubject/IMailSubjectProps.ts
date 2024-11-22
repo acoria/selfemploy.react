@@ -1,5 +1,5 @@
 import { IApplicationOrigin } from "../applicationOriginConfig/types/IApplicationOrigin";
 
-export interface IApplySubjectProps {
+export interface IMailSubjectProps {
   applicationOrigin: IApplicationOrigin;
 }

@@ -1,11 +1,11 @@
-import { ApplicantNumber } from "../../features/applicantNumberConfig/ApplicantNumber";
+import { NumberOfApplicants } from "../../features/numberOfApplicantsConfig/types/NumberOfApplicants";
 import { ApplicationMedium } from "../../features/applicationMediumConfig/types/ApplicationMedium";
 import { IApplicationOrigin } from "../../features/applicationOriginConfig/types/IApplicationOrigin";
 import { IFarewell } from "../../features/farewellConfig/IFarewell";
 import { Language } from "../../features/languageConfig/types/Language";
 
 export interface IApplyMessageConfig {
-  applicantNumber: ApplicantNumber;
+  applicantNumber: NumberOfApplicants;
   applicationMedium: ApplicationMedium;
   applicationOrigin: IApplicationOrigin | undefined;
   applicationTexts: string[];

@@ -1,11 +1,11 @@
 import { AppContext } from "./context/AppContext";
-import { ApplyMessageGeneratorComponent } from "./features/applyMessageGenerator/ApplyMessageGeneratorComponent";
+import { MessageGenerator } from "./features/messageGenerator/MessageGenerator";
 import { useSettingsStorage } from "./hooks/useSettingsStorage";
 
 function App() {
   return (
     <AppContext.Provider value={{ settings: useSettingsStorage() }}>
-      <ApplyMessageGeneratorComponent />
+      <MessageGenerator />
     </AppContext.Provider>
   );
 }

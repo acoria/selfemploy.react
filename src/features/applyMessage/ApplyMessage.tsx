@@ -6,7 +6,7 @@ import { NotImplementedError } from "../../core/errors/NotImplementedError";
 import { texts } from "../../hooks/useTranslation/texts";
 import { useTranslation } from "../../hooks/useTranslation/useTranslation";
 import { copyHTMLToClipboard } from "../../services/copyHTMLToClipboard";
-import { ApplicantNumber } from "../applicantNumberConfig/ApplicantNumber";
+import { NumberOfApplicants } from "../numberOfApplicantsConfig/types/NumberOfApplicants";
 import { ApplicationMedium } from "../applicationMediumConfig/types/ApplicationMedium";
 import { ApplicationOrigin } from "../applicationOriginConfig/types/ApplicationOrigin";
 import { Farewell } from "../farewellConfig/Farewell";
@@ -56,10 +56,10 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
     if (props.applyMessageConfig?.applicationMedium === undefined) return "";
     let wouldPlaceholder;
     switch (props.applyMessageConfig.applicantNumber) {
-      case ApplicantNumber.SINGLE:
+      case NumberOfApplicants.SINGLE:
         wouldPlaceholder = t(texts.applyMessageGenerator.messageSection.wouldI);
         break;
-      case ApplicantNumber.DOUBLE:
+      case NumberOfApplicants.DOUBLE:
         wouldPlaceholder = t(
           texts.applyMessageGenerator.messageSection.wouldWe
         );
@@ -116,7 +116,7 @@ export const ApplyMessage: React.FC<IApplyMessageProps> = (props) => {
   };
 
   const getSecondProfileLink = (): ReactNode | string => {
-    if (props.applyMessageConfig?.applicantNumber === ApplicantNumber.DOUBLE) {
+    if (props.applyMessageConfig?.applicantNumber === NumberOfApplicants.DOUBLE) {
       let codingBuddyLink = "";
       switch (props.applyMessageConfig.applicationOrigin?.applicationOrigin) {
         case ApplicationOrigin.FREELANCERMAP:

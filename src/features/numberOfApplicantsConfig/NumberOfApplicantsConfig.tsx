@@ -3,10 +3,10 @@ import { EnumMultiSelectButtons } from "../../components/buttons/multiSelectButt
 import { texts } from "../../hooks/useTranslation/texts";
 import { useTranslation } from "../../hooks/useTranslation/useTranslation";
 import { ConfigureComponent } from "../configureComponent/ConfigureComponent";
-import { ApplicantNumber } from "./ApplicantNumber";
-import { IApplicantNumberConfigProps } from "./IApplicantNumberConfigProps";
+import { NumberOfApplicants } from "./types/NumberOfApplicants";
+import { INumberOfApplicantsProps } from "./INumberOfApplicantsProps";
 
-export const ApplicantNumberConfig: React.FC<IApplicantNumberConfigProps> = (
+export const NumberOfApplicantsConfig: React.FC<INumberOfApplicantsProps> = (
   props
 ) => {
   const { t } = useTranslation();
@@ -16,7 +16,7 @@ export const ApplicantNumberConfig: React.FC<IApplicantNumberConfigProps> = (
     >
       <EnumMultiSelectButtons
         initialValue={props.initialValue}
-        enumType={ApplicantNumber}
+        enumType={NumberOfApplicants}
         onChange={props.onChange}
       />
     </ConfigureComponent>

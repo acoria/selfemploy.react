@@ -2,8 +2,8 @@ import { useCallback, useEffect, useState } from "react";
 import { IApplyMessageConfig } from "../../core/types/IApplyMessageConfig";
 import { useSettings } from "../../hooks/useSettings";
 import { HourlyRateConfig } from "../HourlyRateConfig/HourlyRateConfig";
-import { ApplicantNumber } from "../applicantNumberConfig/ApplicantNumber";
-import { ApplicantNumberConfig } from "../applicantNumberConfig/ApplicantNumberConfig";
+import { NumberOfApplicants } from "../numberOfApplicantsConfig/types/NumberOfApplicants";
+import { NumberOfApplicantsConfig } from "../numberOfApplicantsConfig/NumberOfApplicantsConfig";
 import { ApplicationMediumConfig } from "../applicationMediumConfig/ApplicationMediumConfig";
 import { ApplicationMedium } from "../applicationMediumConfig/types/ApplicationMedium";
 import { ApplicationOriginConfig } from "../applicationOriginConfig/ApplicationOriginConfig";
@@ -22,7 +22,7 @@ export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
   const [settings] = useSettings();
   const [applyMessageConfig, setApplyMessageConfig] =
     useState<IApplyMessageConfig>({
-      applicantNumber: ApplicantNumber.SINGLE,
+      applicantNumber: NumberOfApplicants.SINGLE,
       applicationMedium: ApplicationMedium.WEBSITE,
       applicationOrigin: undefined,
       applicationTexts: [],
@@ -45,7 +45,7 @@ export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
 
   return (
     <>
-      <LanguageConfig
+      {/* <LanguageConfig
         onChange={(language) =>
           setApplyMessageConfig((applyMessage) => ({
             ...applyMessage,
@@ -53,8 +53,8 @@ export const MessageGeneratorConfig: React.FC<IMessageGeneratorConfigProps> = (
           }))
         }
         initialValue={applyMessageConfig.language}
-      />
-      <ApplicantNumberConfig
+      /> */}
+      <NumberOfApplicantsConfig
         initialValue={applyMessageConfig.applicantNumber}
         onChange={(applicantNumber) =>
           setApplyMessageConfig((applyMessage) => ({
